@@ -1,0 +1,119 @@
+
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-background: #EFEDE8;
+  --color-primary:    #1E4A5F;
+  --color-secondary:  #2F6B63;
+  --color-accent:     #C97A3D;
+  --color-ink:        #22262B;
+
+  /* Fonts */
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-body:    var(--font-hanken), sans-serif;
+  --font-mono:    var(--font-ibm-plex-mono), monospace;
+
+  /* Spacing extras */
+  --spacing-section: 6rem;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: #EFEDE8;
+  color: #22262B;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Focus Visible ──────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #C97A3D;
+  outline-offset: 3px;
+}
+
+/* ─── Typography helpers ─────────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* ─── Neo-brutalist button / CTA shadow ─────────────────────────────────── */
+.btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  background-color: #C97A3D;
+  color: #EFEDE8;
+  border: 2px solid #22262B;
+  box-shadow: 4px 4px 0 #22262B;
+  transition: box-shadow 0.1s ease, translate 0.1s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-brutal:hover,
+.btn-brutal:focus-visible {
+  box-shadow: 2px 2px 0 #22262B;
+  translate: 2px 2px;
+}
+
+.btn-brutal:active {
+  box-shadow: 0 0 0 #22262B;
+  translate: 4px 4px;
+}
+
+.btn-brutal-ghost {
+  background-color: transparent;
+  color: #22262B;
+  border: 2px solid #22262B;
+  box-shadow: 4px 4px 0 #22262B;
+}
+
+.btn-brutal-ghost:hover,
+.btn-brutal-ghost:focus-visible {
+  background-color: #22262B;
+  color: #EFEDE8;
+  box-shadow: 2px 2px 0 #22262B;
+  translate: 2px 2px;
+}
+
+/* ─── Frosted glass (course & testimonial cards) ─────────────────────────── */
+.glass-card {
+  background: rgba(239, 237, 232, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(34, 38, 43, 0.15);
+}
+
+/* ─── Neo-brutalist box (section accents) ───────────────────────────────── */
+.brutal-box {
+  border: 2px solid #22262B;
+  box-shadow: 6px 6px 0 #22262B;
+}
