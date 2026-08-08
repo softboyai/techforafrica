@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { nav, REGISTRATION_URL } from "@/app/content/copy";
 
 export default function Nav() {
@@ -10,77 +10,82 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handle = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handle, { passive: true });
+    return () => window.removeEventListener("scroll", handle);
   }, []);
-
-  const closeMenu = () => setOpen(false);
 
   return (
     <header
       role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#EFEDE8] backdrop-blur-md border-b-2 border-[#22262B]/10 shadow-sm"
-          : "bg-[#EFEDE8] border-b border-[#22262B]/8"
+          ? "bg-white/98 backdrop-blur-sm shadow-sm border-b border-black/6"
+          : "bg-white border-b border-black/6"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+      <div className="section-container">
+        <div className="flex items-center justify-between h-16 lg:h-[70px]">
 
-          {/* Brand — real logo */}
+          {/* Logo */}
           <a
             href="#"
-            className="flex items-center focus-visible:outline-[#C97A3D] focus-visible:outline-offset-2"
             aria-label="TechBridge for Africa home"
+            className="flex items-center shrink-0 focus-visible:outline-[#4CAF50]"
           >
             <Image
               src="/images/logo4.png"
               alt="TechBridge 4 Africa's Future"
-              width={180}
-              height={54}
-              className="h-11 w-auto object-contain"
+              width={160}
+              height={48}
+              className="h-10 lg:h-11 w-auto object-contain"
               priority
             />
           </a>
 
-          {/* Desktop nav */}
+          {/* Desktop nav links */}
           <nav
-            role="navigation"
             aria-label="Main navigation"
-            className="hidden md:flex items-center gap-7"
+            className="hidden md:flex items-center gap-8"
           >
             {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-[#22262B]/70 hover:text-[#1E4A5F] transition-colors duration-150 focus-visible:outline-[#C97A3D]"
+                className="text-sm font-medium text-[#374151] hover:text-[#011341] transition-colors duration-150 focus-visible:outline-[#4CAF50]"
                 style={{ fontFamily: "var(--font-hanken), sans-serif" }}
               >
                 {link.label}
               </a>
             ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center">
             <a
               href={REGISTRATION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-brutal text-sm py-2 px-5"
+              className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5"
             >
               {nav.cta}
+              <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
             </a>
-          </nav>
+          </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile toggle */}
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            aria-controls="mobile-menu"
+            aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 rounded text-[#22262B] focus-visible:outline-[#C97A3D]"
+            className="md:hidden p-2 text-[#011341] focus-visible:outline-[#4CAF50] rounded"
           >
-            {open ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+            {open
+              ? <X size={22} strokeWidth={1.75} />
+              : <Menu size={22} strokeWidth={1.75} />
+            }
           </button>
         </div>
       </div>
@@ -88,34 +93,36 @@ export default function Nav() {
       {/* Mobile menu */}
       {open && (
         <div
-          id="mobile-menu"
-          className="md:hidden border-t-2 border-[#22262B] bg-[#EFEDE8]"
+          id="mobile-nav"
+          className="md:hidden bg-white border-t border-black/6"
         >
           <nav
-            role="navigation"
             aria-label="Mobile navigation"
-            className="flex flex-col px-5 py-5 gap-4"
+            className="section-container flex flex-col py-5 gap-1"
           >
             {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
-                className="text-base text-[#22262B] hover:text-[#1E4A5F] transition-colors py-1 focus-visible:outline-[#C97A3D]"
+                onClick={() => setOpen(false)}
+                className="text-base font-medium text-[#374151] hover:text-[#011341] hover:bg-[#F7F9F6] px-3 py-2.5 rounded-md transition-colors focus-visible:outline-[#4CAF50]"
                 style={{ fontFamily: "var(--font-hanken), sans-serif" }}
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href={REGISTRATION_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="btn-brutal self-start mt-2"
-            >
-              {nav.cta}
-            </a>
+            <div className="mt-3 pt-3 border-t border-black/6">
+              <a
+                href={REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="btn-primary w-full justify-center"
+              >
+                {nav.cta}
+                <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
+              </a>
+            </div>
           </nav>
         </div>
       )}

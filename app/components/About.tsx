@@ -4,32 +4,32 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-24 lg:py-32 bg-[#EFEDE8]"
+      className="py-24 lg:py-32 bg-[#F7F9F6]"
       aria-labelledby="about-heading"
     >
-      <div className="max-w-6xl mx-auto px-5 lg:px-8">
-        <div className="grid lg:grid-cols-[1fr_380px] gap-16 lg:gap-20 items-start">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-[1fr_360px] gap-16 lg:gap-20 items-start">
 
-          {/* Left: main copy */}
+          {/* Left: copy */}
           <div>
             <p
-              className="text-xs tracking-widest uppercase text-[#1E4A5F] font-medium mb-4"
+              className="text-xs font-semibold tracking-widest uppercase text-[#0F3D3A] mb-3"
               style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
             >
               {about.eyebrow}
             </p>
             <h2
               id="about-heading"
-              className="text-3xl lg:text-4xl font-bold text-[#22262B] leading-tight mb-8"
+              className="text-3xl lg:text-4xl font-bold text-[#011341] leading-tight mb-8"
               style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
             >
               {about.headline}
             </h2>
-            <div className="space-y-5">
+            <div className="space-y-4">
               {about.body.map((para, i) => (
                 <p
                   key={i}
-                  className="text-base text-[#22262B]/65 leading-relaxed"
+                  className="text-base text-[#4B5563] leading-relaxed"
                   style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                 >
                   {para}
@@ -38,54 +38,51 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: operator / partner info cards */}
+          {/* Right: operator + partner cards */}
           <div className="space-y-5 lg:sticky lg:top-24">
 
-            {/* Operator card */}
+            {/* Operator */}
             <div
-              className="p-6 border-2 border-[#1E4A5F] bg-[#1E4A5F]"
-              style={{ boxShadow: "5px 5px 0 #22262B" }}
+              className="p-6 rounded-2xl"
+              style={{ backgroundColor: "#011341" }}
             >
               <p
-                className="text-[0.6rem] tracking-[0.2em] uppercase font-medium text-[#EFEDE8]/60 mb-2"
+                className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-white/50 mb-2"
                 style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
               >
                 {about.operatorLabel}
               </p>
               <p
-                className="text-lg font-bold text-[#EFEDE8] leading-tight mb-1"
+                className="text-lg font-bold text-white mb-1"
                 style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
               >
                 {about.operatorName}
               </p>
               <p
-                className="text-xs text-[#EFEDE8]/60"
+                className="text-xs text-white/55"
                 style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
               >
                 {about.operatorLocation}
               </p>
             </div>
 
-            {/* Delivery partners card */}
-            <div
-              className="p-6 border-2 border-[#22262B] bg-[#EFEDE8]"
-              style={{ boxShadow: "5px 5px 0 #22262B" }}
-            >
+            {/* Partners */}
+            <div className="card p-6">
               <p
-                className="text-[0.6rem] tracking-[0.2em] uppercase font-medium text-[#22262B]/50 mb-3"
+                className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-[#9CA3AF] mb-3"
                 style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
               >
                 {about.partnerLabel}
               </p>
-              <ul className="space-y-2" role="list">
+              <ul className="space-y-2.5" role="list">
                 {about.partnerNames.map((name) => (
                   <li
                     key={name}
-                    className="flex items-center gap-2.5 text-sm font-medium text-[#22262B]"
+                    className="flex items-center gap-2.5 text-sm font-medium text-[#111827]"
                     style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                   >
                     <span
-                      className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#1E4A5F]"
+                      className="w-2 h-2 rounded-full shrink-0 bg-[#4CAF50]"
                       aria-hidden="true"
                     />
                     {name}
@@ -93,7 +90,7 @@ export default function About() {
                 ))}
               </ul>
               <p
-                className="mt-4 text-xs text-[#22262B]/40 leading-relaxed border-t border-[#22262B]/10 pt-3"
+                className="mt-4 text-xs text-[#6B7280] border-t border-black/6 pt-3 leading-relaxed"
                 style={{ fontFamily: "var(--font-hanken), sans-serif" }}
               >
                 Delivery partners only. Programme operated by Pathway to Salesforce, London.

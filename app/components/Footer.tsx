@@ -3,51 +3,44 @@ import { footer } from "@/app/content/copy";
 
 export default function Footer() {
   return (
-    <footer
-      role="contentinfo"
-      className="border-t-2 border-[#22262B] bg-[#22262B] text-[#EFEDE8]"
-    >
-      <div className="max-w-6xl mx-auto px-5 lg:px-8 py-14 lg:py-16">
+    <footer role="contentinfo" className="bg-[#011341] text-white">
+      <div className="section-container py-14 lg:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto] gap-10 lg:gap-16 mb-12">
 
-          {/* Brand column */}
+          {/* Brand */}
           <div className="max-w-xs">
-            {/* Logo on a light backing so colours show on dark footer */}
-            <div className="mb-4 inline-block bg-white px-3 py-2">
+            <div className="mb-4 inline-block bg-white rounded-lg px-3 py-2">
               <Image
                 src="/images/logo4.png"
                 alt="TechBridge 4 Africa's Future"
-                width={160}
-                height={48}
-                className="h-9 w-auto object-contain"
+                width={150}
+                height={44}
+                className="h-8 w-auto object-contain"
               />
             </div>
-
-            {/* Colour bar echoing logo palette */}
-            <div className="flex gap-0.5 mb-4 w-24" aria-hidden="true">
-              <div className="h-0.5 flex-1 bg-[#4CAF50]" />
-              <div className="h-0.5 flex-1 bg-[#1A237E]" />
-              <div className="h-0.5 flex-[0.4] bg-[#F5A623]" />
+            <div className="flex gap-0.5 mb-4 w-20 h-0.5 rounded-full overflow-hidden" aria-hidden="true">
+              <div className="flex-1 bg-[#4CAF50]" />
+              <div className="flex-1 bg-white/30" />
+              <div className="flex-[0.4] bg-[#FBB934]" />
             </div>
-
             <p
-              className="text-[0.65rem] tracking-widest uppercase text-[#EFEDE8]/40 mb-4"
+              className="text-[0.6rem] font-semibold tracking-widest uppercase text-white/40 mb-3"
               style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
             >
               {footer.operatedBy}
             </p>
             <p
-              className="text-sm text-[#EFEDE8]/50 leading-relaxed"
+              className="text-sm text-white/50 leading-relaxed"
               style={{ fontFamily: "var(--font-hanken), sans-serif" }}
             >
               {footer.tagline}
             </p>
           </div>
 
-          {/* Nav links */}
+          {/* Nav */}
           <nav aria-label="Footer navigation">
             <p
-              className="text-[0.6rem] tracking-[0.2em] uppercase font-medium text-[#EFEDE8]/30 mb-4"
+              className="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-white/30 mb-4"
               style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
             >
               Navigate
@@ -57,7 +50,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-[#EFEDE8]/55 hover:text-[#EFEDE8] transition-colors duration-150 focus-visible:outline-[#C97A3D]"
+                    className="text-sm text-white/55 hover:text-white transition-colors focus-visible:outline-[#4CAF50]"
                     style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                     {...(link.href.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
@@ -70,10 +63,10 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Legal links */}
+          {/* Legal */}
           <nav aria-label="Legal navigation">
             <p
-              className="text-[0.6rem] tracking-[0.2em] uppercase font-medium text-[#EFEDE8]/30 mb-4"
+              className="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-white/30 mb-4"
               style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
             >
               Legal
@@ -83,7 +76,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-[#EFEDE8]/55 hover:text-[#EFEDE8] transition-colors duration-150 focus-visible:outline-[#C97A3D]"
+                    className="text-sm text-white/55 hover:text-white transition-colors focus-visible:outline-[#4CAF50]"
                     style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                   >
                     {link.label}
@@ -95,15 +88,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#EFEDE8]/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p
-            className="text-xs text-[#EFEDE8]/30"
+            className="text-xs text-white/30"
             style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
           >
             {footer.copyright}
           </p>
           <p
-            className="text-xs text-[#EFEDE8]/25 max-w-sm sm:text-right"
+            className="text-xs text-white/25 max-w-sm sm:text-right"
             style={{ fontFamily: "var(--font-hanken), sans-serif" }}
           >
             {footer.deliveryPartners}

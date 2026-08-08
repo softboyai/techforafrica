@@ -1,44 +1,25 @@
-import { CheckCircle, MonitorPlay, BarChart2 } from "lucide-react";
-import BridgeLineArt from "./BridgeLineArt";
+import { CheckCircle, MonitorPlay, BarChart2, ArrowRight } from "lucide-react";
 import { courses, REGISTRATION_URL } from "@/app/content/copy";
 
 export default function Courses() {
   return (
     <section
       id="courses"
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="py-24 lg:py-32 bg-white"
       aria-labelledby="courses-heading"
     >
-      {/* Faint bridge as section texture */}
-      <div
-        className="absolute bottom-0 right-0 w-[600px] pointer-events-none select-none opacity-[0.07]"
-        aria-hidden="true"
-      >
-        <BridgeLineArt />
-      </div>
-
-      {/* Section background — slightly deeper than base */}
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(165deg, #1E4A5F0D 0%, transparent 60%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8">
+      <div className="section-container">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-14">
           <p
-            className="text-xs tracking-widest uppercase text-[#1E4A5F] font-medium mb-4"
+            className="text-xs font-semibold tracking-widest uppercase text-[#0F3D3A] mb-3"
             style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
           >
             {courses.eyebrow}
           </p>
           <h2
             id="courses-heading"
-            className="text-3xl lg:text-4xl font-bold text-[#22262B] leading-tight"
+            className="text-3xl lg:text-4xl font-bold text-[#011341] leading-tight"
             style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
           >
             {courses.headline}
@@ -49,136 +30,124 @@ export default function Courses() {
         <div className="grid lg:grid-cols-2 gap-8">
           {courses.items.map((course) => {
             const isSalesforce = course.track === "salesforce";
-            const accentColor = isSalesforce ? "#1E4A5F" : "#2F6B63";
+            const accentBg  = isSalesforce ? "#011341" : "#0F3D3A";
+            const accentTag = isSalesforce ? "#C8F8A9" : "#FBB934";
+            const accentTagText = "#0F3D3A";
 
             return (
               <article
                 key={course.track}
-                className="glass-card relative flex flex-col p-8 lg:p-10"
-                style={{
-                  border: `2px solid ${accentColor}30`,
-                  boxShadow: `6px 6px 0 ${accentColor}25`,
-                }}
+                className="rounded-2xl border border-black/8 overflow-hidden flex flex-col"
+                style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
                 aria-label={`${course.title} track`}
               >
-                {/* Track label */}
-                <p
-                  className="text-[0.6rem] tracking-[0.2em] uppercase font-medium mb-3"
-                  style={{
-                    fontFamily: "var(--font-ibm-plex-mono), monospace",
-                    color: accentColor,
-                  }}
-                >
-                  {course.label}
-                </p>
-
-                {/* Title */}
-                <h3
-                  className="text-2xl lg:text-3xl font-bold mb-2 leading-tight"
-                  style={{
-                    fontFamily: "var(--font-bricolage), sans-serif",
-                    color: accentColor,
-                  }}
-                >
-                  {course.title}
-                </h3>
-
-                {/* Tagline */}
-                <p
-                  className="text-sm font-medium text-[#22262B]/70 mb-5 leading-snug"
-                  style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-                >
-                  {course.tagline}
-                </p>
-
-                {/* Divider */}
+                {/* Coloured header band */}
                 <div
-                  className="w-12 h-[2px] mb-5"
-                  style={{ backgroundColor: accentColor }}
-                />
-
-                {/* Description */}
-                <p
-                  className="text-sm text-[#22262B]/65 leading-relaxed mb-7"
-                  style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                  className="px-8 pt-8 pb-6"
+                  style={{ backgroundColor: accentBg }}
                 >
-                  {course.description}
-                </p>
-
-                {/* Outcomes */}
-                <div className="mb-8 flex-1">
                   <p
-                    className="text-[0.65rem] tracking-widest uppercase font-medium mb-3 text-[#22262B]/50"
+                    className="inline-flex text-[0.6rem] font-semibold tracking-[0.2em] uppercase px-2.5 py-1 rounded-full mb-3"
+                    style={{
+                      fontFamily: "var(--font-ibm-plex-mono), monospace",
+                      backgroundColor: accentTag,
+                      color: accentTagText,
+                    }}
+                  >
+                    {course.label}
+                  </p>
+                  <h3
+                    className="text-2xl lg:text-3xl font-bold text-white mb-2 leading-tight"
+                    style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+                  >
+                    {course.title}
+                  </h3>
+                  <p
+                    className="text-sm text-white/70"
+                    style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                  >
+                    {course.tagline}
+                  </p>
+                </div>
+
+                {/* Body */}
+                <div className="flex flex-col flex-1 px-8 py-7 bg-white">
+                  <p
+                    className="text-sm text-[#4B5563] leading-relaxed mb-6"
+                    style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                  >
+                    {course.description}
+                  </p>
+
+                  {/* Outcomes */}
+                  <p
+                    className="text-[0.65rem] font-semibold tracking-widest uppercase text-[#9CA3AF] mb-3"
                     style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
                   >
                     What you will build
                   </p>
-                  <ul className="space-y-2.5" role="list">
+                  <ul className="space-y-2 mb-7 flex-1" role="list">
                     {course.outcomes.map((outcome) => (
                       <li
                         key={outcome}
-                        className="flex items-start gap-2.5 text-sm text-[#22262B]/70"
+                        className="flex items-start gap-2.5 text-sm text-[#374151]"
                         style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                       >
                         <CheckCircle
                           size={15}
-                          strokeWidth={1.5}
+                          strokeWidth={2}
                           className="mt-0.5 shrink-0"
-                          style={{ color: accentColor }}
+                          style={{ color: isSalesforce ? "#011341" : "#0F3D3A" }}
                           aria-hidden="true"
                         />
                         {outcome}
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                {/* Meta info */}
-                <div className="grid grid-cols-2 gap-3 mb-8 pt-5 border-t border-[#22262B]/10">
-                  {[
-                    { icon: <MonitorPlay size={14} strokeWidth={1.5} aria-hidden="true" />, label: "Format", value: course.format },
-                    { icon: <BarChart2 size={14} strokeWidth={1.5} aria-hidden="true" />, label: "Level", value: course.level },
-                  ].map(({ icon, label, value }) => (
-                    <div key={label} className="flex flex-col gap-1">
-                      <div
-                        className="flex items-center gap-1 text-[#22262B]/40"
-                        style={{ color: accentColor + "99" }}
-                      >
-                        {icon}
-                        <span
-                          className="text-[0.6rem] tracking-widest uppercase"
-                          style={{ fontFamily: "var(--font-ibm-plex-mono), monospace", color: "#22262B99" }}
+                  {/* Meta */}
+                  <div className="grid grid-cols-2 gap-3 mb-7 pt-5 border-t border-black/6">
+                    {[
+                      { icon: <MonitorPlay size={14} strokeWidth={1.75} aria-hidden="true" />, label: "Format", value: course.format },
+                      { icon: <BarChart2 size={14} strokeWidth={1.75} aria-hidden="true" />, label: "Level", value: course.level },
+                    ].map(({ icon, label, value }) => (
+                      <div key={label} className="flex flex-col gap-1">
+                        <div className="flex items-center gap-1.5 text-[#9CA3AF]">
+                          {icon}
+                          <span
+                            className="text-[0.6rem] tracking-widest uppercase"
+                            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+                          >
+                            {label}
+                          </span>
+                        </div>
+                        <p
+                          className="text-xs font-medium text-[#374151] leading-snug"
+                          style={{ fontFamily: "var(--font-hanken), sans-serif" }}
                         >
-                          {label}
-                        </span>
+                          {value}
+                        </p>
                       </div>
-                      <p
-                        className="text-xs font-medium text-[#22262B]/70 leading-snug"
-                        style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-                      >
-                        {value}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
 
-                {/* CTA */}
-                <a
-                  href={REGISTRATION_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-brutal self-start"
-                  style={
-                    !isSalesforce
-                      ? {
-                          backgroundColor: "#2F6B63",
-                        }
-                      : {}
-                  }
-                  aria-label={`Apply for ${course.title} track`}
-                >
-                  Register for this track
-                </a>
+                  {/* CTA */}
+                  <a
+                    href={REGISTRATION_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary self-start flex items-center gap-2"
+                    style={
+                      !isSalesforce
+                        ? { backgroundColor: "#C8F8A9", color: "#0F3D3A" }
+                        : {}
+                    }
+                    aria-label={`Register for ${course.title} track`}
+                  >
+                    Register for this track
+                    <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
+                  </a>
+                </div>
               </article>
             );
           })}
