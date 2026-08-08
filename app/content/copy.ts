@@ -1,6 +1,5 @@
 // ─── TechBridge for Africa — All Page Copy ────────────────────────────────
 // Edit text here. Components stay presentational.
-// Bracketed items are intentional placeholders — swap them before going live.
 
 export const REGISTRATION_URL = "https://forms.gle/rqk8ivMrig4cNKYR8";
 
@@ -79,7 +78,6 @@ export const courses = {
         "Workflow automation with Flow Builder",
         "Real client scenario practice",
       ],
-      duration: "[X] weeks",
       format: "Live online + self-paced Trailhead",
       level: "Beginner to intermediate",
       accent: "primary" as const,
@@ -98,7 +96,6 @@ export const courses = {
         "Responsible and ethical AI use in the workplace",
         "Building an AI-augmented personal workflow",
       ],
-      duration: "Flexible schedule",
       format: "Live online + hands-on project work",
       level: "No prior AI experience needed",
       accent: "secondary" as const,
@@ -111,8 +108,8 @@ export const about = {
   eyebrow: "About the programme",
   headline: "Operated by Pathway to Salesforce, delivered across Africa.",
   body: [
-    "TechBridge for Africa is a programme operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK. Pathway to Salesforce has been developing structured Salesforce and technology training pathways since [YEAR].",
-    "The programme is delivered in collaboration with three African technology companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide local context, regional coordination, and on-the-ground support for participants across the continent.",
+    "TechBridge for Africa is a programme operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK.",
+    "The programme is delivered in collaboration with three Rwandan technology companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide local context, regional coordination, and on-the-ground support for participants.",
     "Pathway to Salesforce sets the curriculum, maintains the quality standard, and is responsible for the programme's outcomes. The collaboration partners are not the operators of TechBridge for Africa. They are trusted delivery partners who extend the programme's reach.",
   ],
   operatorLabel: "Programme Operator",
@@ -125,27 +122,21 @@ export const about = {
 // ─── Partners ─────────────────────────────────────────────────────────────
 export const partners = {
   eyebrow: "Collaboration partners",
-  headline: "Delivered with trusted African tech companies.",
+  headline: "Delivered with trusted Rwandan tech companies.",
   intro:
-    "TechBridge for Africa works with three regional partners who provide local knowledge, coordination, and participant support. The curriculum and programme standards are set by Pathway to Salesforce.",
+    "TechBridge for Africa works with three Rwandan partners who provide local coordination and participant support. The curriculum and programme standards are set by Pathway to Salesforce.",
   items: [
     {
       name: "One Africa Digital",
-      description:
-        "A technology services and digital training company focused on driving digital adoption across African markets.",
-      region: "West Africa",
+      region: "Rwanda",
     },
     {
       name: "Afrinnovators",
-      description:
-        "A tech community and innovation network connecting professionals, startups, and corporates across the continent.",
-      region: "Pan-Africa",
+      region: "Rwanda",
     },
     {
       name: "NovaCore Hub",
-      description:
-        "A technology hub providing training infrastructure, workspace, and professional development support.",
-      region: "East Africa",
+      region: "Rwanda",
     },
   ],
   disclaimer:
@@ -155,7 +146,7 @@ export const partners = {
 // ─── Advert / Spotlight Strip ─────────────────────────────────────────────
 export const advertStrip = {
   messages: [
-    "Applications are open. Cohort [N] starts [MONTH YEAR].",
+    "Applications are now open. Register today to secure your place.",
     "Salesforce is used by over 150,000 companies worldwide. Certified admins are in consistent demand.",
     "You do not need a technical background to start the Salesforce CRM track.",
     "The Applied AI Skills track is designed for practitioners, not engineers.",
@@ -184,7 +175,7 @@ export const howItWorks = {
       number: "03",
       title: "Complete the programme",
       description:
-        "Attend live sessions, work through structured modules, and complete practice projects. You will have access to instructors and peer cohort throughout.",
+        "Attend live sessions, work through structured modules, and complete practice projects. You will have access to instructors and your peer cohort throughout.",
     },
     {
       number: "04",
@@ -197,39 +188,6 @@ export const howItWorks = {
       title: "Step into the market",
       description:
         "You leave with a verified skill set, a completed project portfolio, and the resources to pursue roles that require the skills you have built.",
-    },
-  ],
-} as const;
-
-// ─── Testimonials ─────────────────────────────────────────────────────────
-export const testimonials = {
-  eyebrow: "From participants",
-  headline: "What people say about the programme.",
-  note: "Testimonials will be added here once verified. [Replace with real participant quotes before launch.]",
-  items: [
-    {
-      quote:
-        "I came in with no CRM experience at all. The structure of the Salesforce track meant I was never lost. Each week built on the last and I passed the Admin certification shortly after completing the programme.",
-      name: "Salesforce CRM participant",
-      role: "Salesforce Administrator",
-      location: "Africa",
-      track: "Salesforce CRM",
-    },
-    {
-      quote:
-        "The Applied AI track changed how I approach my actual work. I am not a developer. I work in marketing, and now I use AI tools every day in ways that genuinely save me time and improve my output.",
-      name: "Applied AI participant",
-      role: "Marketing Manager",
-      location: "Africa",
-      track: "Applied AI Skills",
-    },
-    {
-      quote:
-        "What I appreciated most was that Pathway to Salesforce clearly knew what they were doing. The curriculum was serious, the instruction was direct, and the support from the local partners made it easy to stay on track.",
-      name: "Salesforce CRM participant",
-      role: "Business Analyst",
-      location: "Africa",
-      track: "Salesforce CRM",
     },
   ],
 } as const;
@@ -247,7 +205,7 @@ export const faq = {
     {
       question: "Who runs this programme?",
       answer:
-        "TechBridge for Africa is operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK. The programme is delivered in collaboration with three African tech companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide regional support. Pathway to Salesforce sets the curriculum and is responsible for the programme's quality and outcomes.",
+        "TechBridge for Africa is operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK. The programme is delivered in collaboration with three Rwandan tech companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide local support. Pathway to Salesforce sets the curriculum and is responsible for the programme's quality and outcomes.",
     },
     {
       question: "What does the Salesforce CRM track prepare me for?",
@@ -262,7 +220,7 @@ export const faq = {
     {
       question: "How long does the programme take?",
       answer:
-        "Cohort dates and durations are confirmed at registration. Check the registration form for the current schedule and cohort details.",
+        "Programme duration and cohort dates are confirmed at registration. Complete the registration form to get current schedule details.",
     },
     {
       question: "Is there a cost to participate?",
@@ -285,9 +243,9 @@ export const faq = {
 // ─── Final CTA ────────────────────────────────────────────────────────────
 export const finalCta = {
   eyebrow: "Ready to start",
-  headline: "Registrations are open for the next cohort.",
+  headline: "Registrations are open.",
   body:
-    "The next cohort begins [MONTH YEAR]. Places are limited. Complete the registration form to secure your spot. The form takes under five minutes.",
+    "Places are limited. Complete the registration form to secure your spot. The form takes under five minutes.",
   primaryCta: "Register for the Programme",
   secondaryCta: "Have a question? Contact us",
   contactHref: "mailto:info@pathwaytosalesforce.com",

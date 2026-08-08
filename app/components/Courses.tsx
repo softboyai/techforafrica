@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, MonitorPlay, BarChart2 } from "lucide-react";
+import { CheckCircle, MonitorPlay, BarChart2 } from "lucide-react";
 import BridgeLineArt from "./BridgeLineArt";
 import { courses, REGISTRATION_URL } from "@/app/content/copy";
 
@@ -134,9 +134,8 @@ export default function Courses() {
                 </div>
 
                 {/* Meta info */}
-                <div className="grid grid-cols-3 gap-3 mb-8 pt-5 border-t border-[#22262B]/10">
+                <div className="grid grid-cols-2 gap-3 mb-8 pt-5 border-t border-[#22262B]/10">
                   {[
-                    { icon: <Clock size={14} strokeWidth={1.5} aria-hidden="true" />, label: "Duration", value: course.duration },
                     { icon: <MonitorPlay size={14} strokeWidth={1.5} aria-hidden="true" />, label: "Format", value: course.format },
                     { icon: <BarChart2 size={14} strokeWidth={1.5} aria-hidden="true" />, label: "Level", value: course.level },
                   ].map(({ icon, label, value }) => (

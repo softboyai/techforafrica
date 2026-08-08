@@ -6,7 +6,6 @@ import About from "@/app/components/About";
 import Partners from "@/app/components/Partners";
 import AdvertStrip from "@/app/components/AdvertStrip";
 import HowItWorks from "@/app/components/HowItWorks";
-import Testimonials from "@/app/components/Testimonials";
 import FAQ from "@/app/components/FAQ";
 import FinalCTA from "@/app/components/FinalCTA";
 import Footer from "@/app/components/Footer";
@@ -23,7 +22,6 @@ export default function Home() {
         <Partners />
         <AdvertStrip />
         <HowItWorks />
-        <Testimonials />
         <FAQ />
         <FinalCTA />
       </main>

@@ -32,39 +32,33 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* Partner cards */}
+        {/* Partner cards — name, region, badge only. No invented descriptions. */}
         <div className="grid sm:grid-cols-3 gap-6 mb-10">
           {partners.items.map((partner) => (
             <div
               key={partner.name}
-              className="p-6 border-2 border-[#22262B]/20 bg-[#EFEDE8] hover:border-[#1E4A5F]/40 transition-colors duration-150"
+              className="p-6 border-2 border-[#22262B] bg-[#EFEDE8]"
+              style={{ boxShadow: "4px 4px 0 #22262B" }}
             >
-              {/* Name + region */}
-              <div className="flex items-start justify-between mb-3 gap-2">
-                <h3
-                  className="text-base font-semibold text-[#22262B] leading-snug"
-                  style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
-                >
-                  {partner.name}
-                </h3>
+              <div className="flex items-center gap-1.5 mb-4 text-[#22262B]/40">
+                <MapPin size={13} strokeWidth={1.5} aria-hidden="true" />
                 <span
-                  className="flex items-center gap-1 text-[0.6rem] tracking-wide uppercase text-[#22262B]/35 whitespace-nowrap"
+                  className="text-[0.6rem] tracking-widest uppercase"
                   style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
                 >
-                  <MapPin size={11} strokeWidth={1.5} aria-hidden="true" />
                   {partner.region}
                 </span>
               </div>
-              <p
-                className="text-sm text-[#22262B]/55 leading-relaxed"
-                style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-              >
-                {partner.description}
-              </p>
 
-              {/* Delivery partner badge */}
+              <h3
+                className="text-lg font-bold text-[#22262B] leading-snug mb-5"
+                style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+              >
+                {partner.name}
+              </h3>
+
               <p
-                className="mt-4 text-[0.6rem] tracking-widest uppercase text-[#22262B]/30"
+                className="text-[0.6rem] tracking-widest uppercase text-[#22262B]/30"
                 style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
               >
                 Delivery partner

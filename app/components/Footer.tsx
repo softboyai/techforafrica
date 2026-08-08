@@ -12,22 +12,24 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="max-w-xs">
-            {/* Logo — inverted/light version on dark bg */}
-            <div className="mb-4">
+            {/* Logo on a light backing so colours show on dark footer */}
+            <div className="mb-4 inline-block bg-white px-3 py-2">
               <Image
                 src="/images/logo4.png"
                 alt="TechBridge 4 Africa's Future"
-                width={180}
-                height={54}
-                className="h-10 w-auto object-contain brightness-0 invert"
+                width={160}
+                height={48}
+                className="h-9 w-auto object-contain"
               />
             </div>
-            {/* Logo colour bar echoing brand colours */}
+
+            {/* Colour bar echoing logo palette */}
             <div className="flex gap-0.5 mb-4 w-24" aria-hidden="true">
               <div className="h-0.5 flex-1 bg-[#4CAF50]" />
-              <div className="h-0.5 flex-1 bg-[#EFEDE8]/60" />
+              <div className="h-0.5 flex-1 bg-[#1A237E]" />
               <div className="h-0.5 flex-[0.4] bg-[#F5A623]" />
             </div>
+
             <p
               className="text-[0.65rem] tracking-widest uppercase text-[#EFEDE8]/40 mb-4"
               style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
@@ -101,7 +103,7 @@ export default function Footer() {
             {footer.copyright}
           </p>
           <p
-            className="text-xs text-[#EFEDE8]/25 max-w-sm text-right"
+            className="text-xs text-[#EFEDE8]/25 max-w-sm sm:text-right"
             style={{ fontFamily: "var(--font-hanken), sans-serif" }}
           >
             {footer.deliveryPartners}
