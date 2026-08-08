@@ -6,75 +6,79 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero"
-      style={{ backgroundColor: "#08233F", paddingTop: "64px" }}
-      className="relative overflow-hidden min-h-screen md:min-h-[calc(100vh-0px)]"
+      style={{
+        backgroundColor: "#08233F",
+        paddingTop: "64px",        /* exact nav height */
+        minHeight: "100svh",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
-      {/* ────────────────────────────────────────────────────
-          SHARED inner layout — stacks on mobile, side-by-side on desktop
-      ──────────────────────────────────────────────────── */}
-      <div className="rp-container w-full">
+      <div
+        className="rp-container"
+        style={{ flex: 1, display: "flex", flexDirection: "column" }}
+      >
+
+        {/* ─── Two-column grid on desktop, single column on mobile ─── */}
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0",
-            alignItems: "stretch",
+            flex: 1,
+            display: "grid",
+            gridTemplateColumns: "1fr",   /* mobile: 1 col */
+            gridTemplateRows: "auto auto",
+            alignItems: "end",
           }}
+          className="md:grid-cols-hero"  /* overridden below via inline on md */
         >
-          {/* ── Copy block ── */}
+
+          {/* ── Copy — left on desktop, top on mobile ── */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "16px",
-              paddingTop: "clamp(36px, 6vh, 80px)",
-              paddingBottom: "clamp(32px, 4vh, 48px)",
+              gap: "18px",
+              paddingTop: "clamp(40px, 8vh, 100px)",
+              paddingBottom: "clamp(40px, 6vh, 64px)",
             }}
           >
-            {/* Eyebrow */}
+            {/* Eyebrow pill */}
             <span
-              className="eyebrow-tag"
               style={{
                 alignSelf: "flex-start",
-                backgroundColor: "rgba(255,255,255,0.1)",
+                display: "inline-flex",
+                fontSize: "11px",
+                fontWeight: 500,
+                letterSpacing: "0.06em",
+                backgroundColor: "rgba(255,255,255,0.12)",
                 color: "rgba(255,255,255,0.75)",
-                borderColor: "transparent",
+                borderRadius: "4px",
+                padding: "3px 10px",
+                fontFamily: "var(--font-body)",
               }}
             >
               {hero.eyebrow}
             </span>
 
-            {/* Logo — visible on all sizes */}
+            {/* Logo */}
             <Image
               src="/images/logo4.png"
               alt="TechBridge 4 Africa's Future"
-              width={260}
-              height={78}
-              className="object-contain"
-              style={{ height: "clamp(44px, 6vw, 64px)", width: "auto" }}
+              width={280}
+              height={84}
+              style={{ height: "clamp(44px, 5.5vw, 68px)", width: "auto", objectFit: "contain" }}
               priority
             />
 
             {/* Headline */}
             <h1
               className="heading-display heading-display-white"
-              style={{ fontSize: "clamp(30px, 6vw, 56px)", lineHeight: "1.08em" }}
+              style={{ fontSize: "clamp(28px, 4.5vw, 54px)", lineHeight: "1.1em", maxWidth: "560px" }}
             >
-              {hero.headline.split(" ").slice(0, 5).join(" ")}{" "}
-              <span style={{ color: "#FBB934" }}>
-                {hero.headline.split(" ").slice(5).join(" ")}
-              </span>
+              {hero.headline}
             </h1>
 
             {/* Subheadline */}
-            <p
-              style={{
-                fontSize: "clamp(14px, 2vw, 16px)",
-                color: "rgba(255,255,255,0.65)",
-                lineHeight: "1.55",
-                maxWidth: "520px",
-              }}
-            >
+            <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", lineHeight: "1.6", maxWidth: "480px" }}>
               {hero.subheadline}
             </p>
 
@@ -85,7 +89,7 @@ export default function Hero() {
                 display: "inline-flex",
                 fontSize: "11px",
                 fontWeight: 600,
-                letterSpacing: "0.05em",
+                letterSpacing: "0.04em",
                 backgroundColor: "#FBB934",
                 color: "#08233F",
                 borderRadius: "4px",
@@ -96,21 +100,8 @@ export default function Hero() {
             </span>
 
             {/* CTAs */}
-            <div
-              style={{
-                display: "flex",
-                gap: "12px",
-                flexWrap: "wrap",
-                alignItems: "center",
-                marginTop: "8px",
-              }}
-            >
-              <a
-                href={REGISTRATION_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold"
-              >
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+              <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
                 {hero.primaryCta}
                 <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
               </a>
@@ -119,104 +110,53 @@ export default function Hero() {
               </a>
             </div>
 
-            <p
-              style={{
-                fontSize: "11px",
-                color: "rgba(255,255,255,0.3)",
-                letterSpacing: "0.05em",
-                marginTop: "4px",
-              }}
-            >
+            {/* Trust note */}
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.30)", letterSpacing: "0.05em" }}>
               Operated by Pathway to Salesforce · London, UK
             </p>
           </div>
 
-          {/* ── Student photo — full width on mobile, right column on desktop ── */}
+          {/* ── Photo — below copy on mobile, right side on desktop ── */}
           <div
-            className="relative w-full md:hidden"
             style={{
-              height: "clamp(260px, 60vw, 380px)",
+              position: "relative",
+              width: "100%",
               borderRadius: "8px 8px 0 0",
               overflow: "hidden",
-              marginTop: "0",
+              /* mobile: fixed aspect */
+              aspectRatio: "4 / 3",
+              alignSelf: "end",
             }}
+            className="md:self-end"
           >
             <Image
               src="/images/people image.png"
-              alt="TechBridge for Africa participants working together"
+              alt="TechBridge for Africa participants working on laptops"
               fill
               className="object-cover object-top"
-              sizes="100vw"
+              sizes="(min-width: 768px) 45vw, 100vw"
               priority
             />
+            {/* Bottom fade */}
             <div
               style={{
-                position: "absolute",
-                bottom: 0, left: 0, right: 0,
-                height: "80px",
+                position: "absolute", bottom: 0, left: 0, right: 0, height: "80px",
                 background: "linear-gradient(to top, #08233F, transparent)",
               }}
               aria-hidden="true"
             />
             <p
               style={{
-                position: "absolute",
-                bottom: "10px",
-                left: "14px",
-                fontSize: "10px",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.55)",
-                fontFamily: "var(--font-body)",
+                position: "absolute", bottom: "10px", left: "14px",
+                fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase",
+                color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-body)",
               }}
             >
               TechBridge for Africa participants
             </p>
           </div>
-        </div>
-      </div>
 
-      {/* ── Desktop photo: sits absolutely on the right side ── */}
-      <div
-        className="hidden md:block absolute bottom-0 right-0 overflow-hidden"
-        style={{
-          width: "38%",
-          borderRadius: "8px 8px 0 0",
-          boxShadow: "0 0 60px rgba(0,0,0,0.4)",
-        }}
-        aria-hidden="false"
-      >
-        <Image
-          src="/images/people image.png"
-          alt="TechBridge for Africa participants working together"
-          width={560}
-          height={680}
-          className="w-full h-auto object-cover object-top"
-          priority
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0, left: 0, right: 0,
-            height: "80px",
-            background: "linear-gradient(to top, #08233F, transparent)",
-          }}
-          aria-hidden="true"
-        />
-        <p
-          style={{
-            position: "absolute",
-            bottom: "10px",
-            left: "14px",
-            fontSize: "10px",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.55)",
-            fontFamily: "var(--font-body)",
-          }}
-        >
-          TechBridge for Africa participants
-        </p>
+        </div>
       </div>
     </section>
   );

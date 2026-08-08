@@ -221,6 +221,16 @@ body {
   }
 }
 
+/* ─── Hero 2-column grid on desktop ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .md\:grid-cols-hero {
+    grid-template-columns: 1fr 44%;
+    grid-template-rows: 1fr;
+    column-gap: 48px;
+    align-items: end;
+  }
+}
+
 /* ─── Mobile: buttons stay natural width, stack if needed ────────────────── */
 @media (max-width: 767px) {
   .btn-gold, .btn-ghost-gold {
@@ -233,3 +243,6 @@ body {
     padding-bottom: 48px;
   }
 }
+
+/* ─── Footer link hover ──────────────────────────────────────────────────── */
+.footer-link:hover { color: #ffffff !important; }
