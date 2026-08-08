@@ -248,7 +248,7 @@ export const finalCta = {
     "Places are limited. Complete the registration form to secure your spot. The form takes under five minutes.",
   primaryCta: "Register for the Programme",
   secondaryCta: "Have a question? Contact us",
-  contactHref: "mailto:info@pathwaytosalesforce.com",
+  contactHref: "mailto:techbridgeforafrica@gmail.com",
   note: "Operated by Pathway to Salesforce, London, UK.",
 } as const;
 
@@ -270,6 +270,13 @@ export const footer = {
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Use", href: "#" },
   ],
+  contact: {
+    email: "techbridgeforafrica@gmail.com",
+    emailHref: "mailto:techbridgeforafrica@gmail.com",
+    phone: "+250 788 694 060",
+    phoneHref: "tel:+250788694060",
+    address: "Kigali, Rwanda",
+  },
   copyright: `© ${new Date().getFullYear()} TechBridge for Africa. All rights reserved.`,
   deliveryPartners: "Delivered in collaboration with One Africa Digital, Afrinnovators, and NovaCore Hub.",
 } as const;

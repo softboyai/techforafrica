@@ -1,28 +1,23 @@
 import Image from "next/image";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { footer, REGISTRATION_URL } from "@/app/content/copy";
 
 export default function Footer() {
   return (
     <>
-      {/* ── Pre-footer CTA strip (cream bg with gold horizontal lines) ── */}
+      {/* ─────────────────────────────────────────────────────────────────────
+          Pre-footer CTA strip — cream background, centred headline + button
+      ───────────────────────────────────────────────────────────────────── */}
       <section
-        aria-label="Newsletter / CTA strip"
+        aria-label="Register CTA"
         style={{ backgroundColor: "#F7F2EF", position: "relative", overflow: "hidden" }}
       >
-        {/* Gold horizontal lines decoration — like Rwandapreneur */}
+        {/* Decorative gold horizontal lines at the bottom */}
         <div
           aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "80px",
-            overflow: "hidden",
-          }}
+          style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "90px", pointerEvents: "none" }}
         >
-          {[0, 10, 20, 30, 40, 50, 60, 70].map((top) => (
+          {[0, 12, 24, 36, 48, 60, 72, 84].map((top) => (
             <div
               key={top}
               style={{
@@ -32,45 +27,41 @@ export default function Footer() {
                 right: 0,
                 height: "2px",
                 backgroundColor: "#FBB934",
-                opacity: 0.15 + top * 0.01,
+                opacity: 0.12 + top * 0.008,
               }}
             />
           ))}
         </div>
 
-        <div className="rp-container" style={{ paddingTop: "80px", paddingBottom: "100px", position: "relative", zIndex: 1 }}>
+        <div
+          className="rp-container"
+          style={{ paddingTop: "80px", paddingBottom: "110px", position: "relative", zIndex: 1, textAlign: "center" }}
+        >
           <h2
             className="heading-display"
-            style={{
-              fontSize: "clamp(28px, 4vw, 48px)",
-              textAlign: "center",
-              maxWidth: "640px",
-              margin: "0 auto 32px",
-              lineHeight: "1.15em",
-            }}
+            style={{ fontSize: "clamp(26px, 4vw, 46px)", lineHeight: "1.15em", maxWidth: "600px", margin: "0 auto 28px" }}
           >
             Ready to start your tech career?
           </h2>
 
-          <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
             <a
               href={REGISTRATION_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold"
-              style={{ fontSize: "15px", padding: "14px 24px" }}
+              style={{ fontSize: "15px", padding: "14px 28px" }}
             >
               Register for the Programme
               <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
             </a>
             <a
-              href="mailto:info@pathwaytosalesforce.com"
+              href={footer.contact.emailHref}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "8px",
                 fontSize: "14px",
-                color: "rgba(0,0,0,0.65)",
+                color: "rgba(0,0,0,0.60)",
                 textDecoration: "underline",
                 textUnderlineOffset: "3px",
                 fontFamily: "var(--font-body)",
@@ -81,75 +72,118 @@ export default function Footer() {
             </a>
           </div>
 
-          <p style={{ textAlign: "center", fontSize: "12px", color: "rgba(0,0,0,0.35)", marginTop: "20px", fontFamily: "var(--font-body)" }}>
-            Operated by Pathway to Salesforce, London, UK.
+          <p style={{ fontSize: "12px", color: "rgba(0,0,0,0.35)", marginTop: "20px", fontFamily: "var(--font-body)" }}>
+            Operated by Pathway to Salesforce, London, UK &nbsp;·&nbsp; Delivered across Africa
           </p>
         </div>
       </section>
 
-      {/* ── Main footer ── */}
+      {/* ─────────────────────────────────────────────────────────────────────
+          Main footer — dark navy, 4-column grid
+      ───────────────────────────────────────────────────────────────────── */}
       <footer role="contentinfo" style={{ backgroundColor: "#08233F" }}>
-        <div className="rp-container" style={{ paddingTop: "60px", paddingBottom: "0" }}>
+        <div className="rp-container" style={{ paddingTop: "56px", paddingBottom: "0" }}>
 
-          {/* Top grid: 4 columns on desktop */}
+          {/* ── 4-column grid ── */}
           <div
             style={{
               display: "grid",
+              gridTemplateColumns: "repeat(1, 1fr)",
               gap: "40px",
               paddingBottom: "48px",
               borderBottom: "0.5px solid rgba(255,255,255,0.10)",
             }}
-            className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            className="sm:grid-cols-2 lg:grid-cols-4"
           >
 
-            {/* Brand */}
-            <div style={{ gridColumn: "1 / -1" }} className="lg:col-span-1 lg:col-auto">
-              <div style={{ marginBottom: "16px" }}>
-                <div
-                  style={{
-                    backgroundColor: "#fff",
-                    display: "inline-block",
-                    padding: "6px 10px",
-                    borderRadius: "6px",
-                    marginBottom: "14px",
-                  }}
-                >
-                  <Image
-                    src="/images/logo4.png"
-                    alt="TechBridge 4 Africa's Future"
-                    width={130}
-                    height={40}
-                    style={{ height: "32px", width: "auto", objectFit: "contain", display: "block" }}
-                  />
-                </div>
-                {/* Colour bar */}
-                <div style={{ display: "flex", gap: "2px", height: "2px", width: "64px", marginBottom: "14px" }} aria-hidden="true">
-                  <div style={{ flex: 1, backgroundColor: "#4CAF50" }} />
-                  <div style={{ flex: 1, backgroundColor: "rgba(255,255,255,0.25)" }} />
-                  <div style={{ width: "16px", backgroundColor: "#FBB934" }} />
-                </div>
+            {/* Column 1: Brand */}
+            <div>
+              {/* Logo on white pill */}
+              <div
+                style={{
+                  backgroundColor: "#ffffff",
+                  display: "inline-block",
+                  padding: "6px 10px",
+                  borderRadius: "6px",
+                  marginBottom: "16px",
+                }}
+              >
+                <Image
+                  src="/images/logo4.png"
+                  alt="TechBridge 4 Africa's Future"
+                  width={130}
+                  height={40}
+                  style={{ height: "30px", width: "auto", objectFit: "contain", display: "block" }}
+                />
               </div>
-              <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "10px", lineHeight: 1.5 }}>
+
+              {/* Brand colour bar — green / white / gold */}
+              <div
+                style={{ display: "flex", gap: "2px", height: "2px", width: "60px", marginBottom: "16px" }}
+                aria-hidden="true"
+              >
+                <div style={{ flex: 1, backgroundColor: "#4CAF50" }} />
+                <div style={{ flex: 1, backgroundColor: "rgba(255,255,255,0.20)" }} />
+                <div style={{ width: "14px", backgroundColor: "#FBB934" }} />
+              </div>
+
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 600,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.30)",
+                  marginBottom: "10px",
+                  lineHeight: 1.6,
+                  fontFamily: "var(--font-body)",
+                }}
+              >
                 {footer.operatedBy}
               </p>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", lineHeight: "1.6", maxWidth: "240px" }}>
+              <p
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(255,255,255,0.45)",
+                  lineHeight: "1.6",
+                  maxWidth: "230px",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
                 {footer.tagline}
               </p>
             </div>
 
-            {/* Navigate */}
+            {/* Column 2: Navigate */}
             <nav aria-label="Footer navigation">
-              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "18px" }}>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: "20px",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
                 Navigate
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "13px" }}>
                 {footer.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      style={{ fontSize: "14px", color: "rgba(255,255,255,0.60)", textDecoration: "none", fontFamily: "var(--font-body)" }}
                       className="footer-link"
-                      {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      style={{
+                        fontSize: "14px",
+                        color: "rgba(255,255,255,0.58)",
+                        textDecoration: "none",
+                        fontFamily: "var(--font-body)",
+                      }}
+                      {...(link.href.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {link.label}
                     </a>
@@ -158,18 +192,33 @@ export default function Footer() {
               </ul>
             </nav>
 
-            {/* Legal */}
+            {/* Column 3: Legal */}
             <nav aria-label="Legal navigation">
-              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "18px" }}>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: "20px",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
                 Legal
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "13px" }}>
                 {footer.legal.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      style={{ fontSize: "14px", color: "rgba(255,255,255,0.60)", textDecoration: "none", fontFamily: "var(--font-body)" }}
                       className="footer-link"
+                      style={{
+                        fontSize: "14px",
+                        color: "rgba(255,255,255,0.58)",
+                        textDecoration: "none",
+                        fontFamily: "var(--font-body)",
+                      }}
                     >
                       {link.label}
                     </a>
@@ -178,27 +227,90 @@ export default function Footer() {
               </ul>
             </nav>
 
-            {/* Contact */}
+            {/* Column 4: Contact — Kigali, Rwanda */}
             <div>
-              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "18px" }}>
+              <p
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.35)",
+                  marginBottom: "20px",
+                  fontFamily: "var(--font-body)",
+                }}
+              >
                 Contact
               </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+
+                {/* Email */}
                 <a
-                  href="mailto:info@pathwaytosalesforce.com"
+                  href={footer.contact.emailHref}
                   style={{ display: "flex", alignItems: "flex-start", gap: "10px", textDecoration: "none" }}
                 >
-                  <Mail size={15} strokeWidth={1.5} style={{ color: "#FBB934", flexShrink: 0, marginTop: "2px" }} aria-hidden="true" />
-                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
-                    info@pathwaytosalesforce.com
+                  <Mail
+                    size={14}
+                    strokeWidth={1.5}
+                    style={{ color: "#FBB934", flexShrink: 0, marginTop: "1px" }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    style={{
+                      fontSize: "13px",
+                      color: "rgba(255,255,255,0.55)",
+                      lineHeight: "1.5",
+                      fontFamily: "var(--font-body)",
+                      wordBreak: "break-all",
+                    }}
+                  >
+                    {footer.contact.email}
                   </span>
                 </a>
+
+                {/* Phone */}
+                <a
+                  href={footer.contact.phoneHref}
+                  style={{ display: "flex", alignItems: "flex-start", gap: "10px", textDecoration: "none" }}
+                >
+                  <Phone
+                    size={14}
+                    strokeWidth={1.5}
+                    style={{ color: "#FBB934", flexShrink: 0, marginTop: "1px" }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    style={{
+                      fontSize: "13px",
+                      color: "rgba(255,255,255,0.55)",
+                      lineHeight: "1.5",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    {footer.contact.phone}
+                  </span>
+                </a>
+
+                {/* Address */}
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                  <MapPin size={15} strokeWidth={1.5} style={{ color: "#FBB934", flexShrink: 0, marginTop: "2px" }} aria-hidden="true" />
-                  <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
-                    Pathway to Salesforce<br />London, United Kingdom
+                  <MapPin
+                    size={14}
+                    strokeWidth={1.5}
+                    style={{ color: "#FBB934", flexShrink: 0, marginTop: "1px" }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    style={{
+                      fontSize: "13px",
+                      color: "rgba(255,255,255,0.55)",
+                      lineHeight: "1.5",
+                      fontFamily: "var(--font-body)",
+                    }}
+                  >
+                    {footer.contact.address}
                   </span>
                 </div>
+
               </div>
             </div>
 
@@ -206,19 +318,13 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "8px",
-              paddingTop: "20px",
-              paddingBottom: "24px",
-            }}
+            style={{ paddingTop: "20px", paddingBottom: "24px", display: "flex", flexDirection: "column", gap: "6px" }}
             className="sm:flex-row sm:items-center sm:justify-between"
           >
-            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-body)" }}>
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.22)", fontFamily: "var(--font-body)" }}>
               {footer.copyright}
             </p>
-            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.20)", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.18)", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
               {footer.deliveryPartners}
             </p>
           </div>
