@@ -22,8 +22,8 @@ export default function Nav() {
       role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-[#EFEDE8]/95 backdrop-blur-md border-b border-[#22262B]/10 shadow-sm"
-          : "bg-transparent"
+          ? "bg-[#EFEDE8] backdrop-blur-md border-b-2 border-[#22262B]/10 shadow-sm"
+          : "bg-[#EFEDE8] border-b border-[#22262B]/8"
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 lg:px-8">
@@ -40,7 +40,7 @@ export default function Nav() {
               alt="TechBridge 4 Africa's Future"
               width={180}
               height={54}
-              className="h-10 w-auto object-contain"
+              className="h-11 w-auto object-contain"
               priority
             />
           </a>
