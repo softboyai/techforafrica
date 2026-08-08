@@ -1,45 +1,33 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { DM_Serif_Display, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 
-// ─── Fonts ────────────────────────────────────────────────────────────────
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+/* Gestura equivalent — DM Serif Display for large display headings */
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
 });
 
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
+/* Instrument Sans for body / UI */
+const instrumentSans = Instrument_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600"],
 });
-
-// ─── SEO Metadata ────────────────────────────────────────────────────────
 
 const BASE_URL = "https://techbridgeforafrica.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-
   title: {
     default: "TechBridge for Africa | Salesforce CRM & AI Skills Training",
     template: "%s | TechBridge for Africa",
   },
-
   description:
     "TechBridge for Africa offers structured technology training in Salesforce CRM and Applied AI Skills. Operated by Pathway to Salesforce, London. Open to all — no technical background required.",
-
   keywords: [
     "Salesforce training Africa",
     "Salesforce CRM course Rwanda",
@@ -52,27 +40,9 @@ export const metadata: Metadata = {
     "AI skills course",
     "online tech training Rwanda",
   ],
-
-  authors: [{ name: "Pathway to Salesforce", url: "https://pathwaytosalesforce.com" }],
-
-  creator: "Pathway to Salesforce",
-  publisher: "TechBridge for Africa",
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  alternates: {
-    canonical: BASE_URL,
-  },
-
+  authors: [{ name: "Pathway to Salesforce" }],
+  robots: { index: true, follow: true },
+  alternates: { canonical: BASE_URL },
   openGraph: {
     type: "website",
     url: BASE_URL,
@@ -80,126 +50,40 @@ export const metadata: Metadata = {
     locale: "en_GB",
     title: "TechBridge for Africa | Salesforce CRM & AI Skills Training",
     description:
-      "Structured technology training in Salesforce CRM and Applied AI Skills. Operated by Pathway to Salesforce, London. Delivered with Rwandan tech partners. No technical background required.",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "TechBridge for Africa — Salesforce CRM and AI Skills Training",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    site: "@techbridgeafrica",
-    creator: "@techbridgeafrica",
-    title: "TechBridge for Africa | Salesforce CRM & AI Skills Training",
-    description:
       "Structured technology training in Salesforce CRM and Applied AI Skills. Operated by Pathway to Salesforce, London.",
-    images: ["/images/og-image.png"],
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
   },
-
   icons: {
-    icon: [
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-    ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png" }],
   },
-
-  category: "education",
 };
-
-// ─── JSON-LD structured data ──────────────────────────────────────────────
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
-      name: "TechBridge for Africa",
-      url: BASE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${BASE_URL}/images/logo4.png`,
-        width: 512,
-        height: 160,
-      },
-      description:
-        "TechBridge for Africa is a technology training programme operated by Pathway to Salesforce, London. It delivers Salesforce CRM and Applied AI Skills training across Africa in collaboration with Rwandan tech partners.",
-      parentOrganization: {
-        "@type": "Organization",
-        name: "Pathway to Salesforce",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "London",
-          addressCountry: "GB",
-        },
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${BASE_URL}/#website`,
-      url: BASE_URL,
-      name: "TechBridge for Africa",
-      publisher: { "@id": `${BASE_URL}/#organization` },
-    },
-    {
-      "@type": "Course",
-      name: "Salesforce CRM Track",
-      description:
-        "Learn to configure and administer Salesforce, covering Sales Cloud, Service Cloud, Flow Builder, and preparation for the Salesforce Administrator certification exam.",
-      provider: { "@id": `${BASE_URL}/#organization` },
-      educationalLevel: "Beginner to intermediate",
-      courseMode: "online",
-      inLanguage: "en",
-      offers: {
-        "@type": "Offer",
-        url: `${BASE_URL}/#courses`,
-        availability: "https://schema.org/InStock",
-      },
-    },
-    {
-      "@type": "Course",
-      name: "Applied AI Skills Track",
-      description:
-        "A practical course covering prompt engineering, AI-assisted workflows, and responsible AI use in professional contexts. No prior AI or technical background required.",
-      provider: { "@id": `${BASE_URL}/#organization` },
-      educationalLevel: "No prior experience needed",
-      courseMode: "online",
-      inLanguage: "en",
-      offers: {
-        "@type": "Offer",
-        url: `${BASE_URL}/#courses`,
-        availability: "https://schema.org/InStock",
-      },
-    },
-  ],
+  "@type": "Organization",
+  name: "TechBridge for Africa",
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/logo4.png`,
+  description:
+    "TechBridge for Africa is a technology training programme operated by Pathway to Salesforce, London.",
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Pathway to Salesforce",
+    address: { "@type": "PostalAddress", addressLocality: "London", addressCountry: "GB" },
+  },
 };
 
-// ─── Root layout ──────────────────────────────────────────────────────────
-
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${bricolage.variable} ${hanken.variable} ${ibmPlexMono.variable}`}
-    >
+    <html lang="en" className={`${dmSerifDisplay.variable} ${instrumentSans.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#F5F4F1] text-[#111110] antialiased">
+      <body className="min-h-screen antialiased" style={{ backgroundColor: "#F7F2EF", color: "#000000", fontFamily: "var(--font-body), sans-serif" }}>
         {children}
       </body>
     </html>

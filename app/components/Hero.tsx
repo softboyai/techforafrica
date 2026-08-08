@@ -5,137 +5,218 @@ import { hero, REGISTRATION_URL } from "@/app/content/copy";
 export default function Hero() {
   return (
     <section
-      className="relative pt-[70px] overflow-hidden bg-white"
       aria-label="Hero"
+      style={{ backgroundColor: "#08233F", paddingTop: "64px" }}
+      className="relative overflow-hidden min-h-screen md:min-h-[calc(100vh-0px)]"
     >
-      {/* Subtle gradient background matching rwandapreneur hero tone */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(135deg, #F0FDF4 0%, #EFF6FF 50%, #FFFBEB 100%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[88vh] py-16 lg:py-24">
-
-          {/* Left: copy */}
-          <div>
+      {/* ────────────────────────────────────────────────────
+          SHARED inner layout — stacks on mobile, side-by-side on desktop
+      ──────────────────────────────────────────────────── */}
+      <div className="rp-container w-full">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0",
+            alignItems: "stretch",
+          }}
+        >
+          {/* ── Copy block ── */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              paddingTop: "clamp(36px, 6vh, 80px)",
+              paddingBottom: "clamp(32px, 4vh, 48px)",
+            }}
+          >
             {/* Eyebrow */}
-            <p
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#0F3D3A] bg-[#C8F8A9] px-3 py-1.5 rounded-full mb-6"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+            <span
+              className="eyebrow-tag"
+              style={{
+                alignSelf: "flex-start",
+                backgroundColor: "rgba(255,255,255,0.1)",
+                color: "rgba(255,255,255,0.75)",
+                borderColor: "transparent",
+              }}
             >
-              {hero.badge}
-            </p>
+              {hero.eyebrow}
+            </span>
 
-            {/* Logo in hero (large) */}
-            <div className="mb-7">
-              <Image
-                src="/images/logo4.png"
-                alt="TechBridge 4 Africa's Future"
-                width={340}
-                height={100}
-                className="h-16 lg:h-[4.5rem] w-auto object-contain"
-                priority
-              />
-            </div>
+            {/* Logo — visible on all sizes */}
+            <Image
+              src="/images/logo4.png"
+              alt="TechBridge 4 Africa's Future"
+              width={260}
+              height={78}
+              className="object-contain"
+              style={{ height: "clamp(44px, 6vw, 64px)", width: "auto" }}
+              priority
+            />
 
             {/* Headline */}
             <h1
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-[#011341] leading-[1.1] tracking-tight mb-5"
-              style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+              className="heading-display heading-display-white"
+              style={{ fontSize: "clamp(30px, 6vw, 56px)", lineHeight: "1.08em" }}
             >
-              {hero.headline}
+              {hero.headline.split(" ").slice(0, 5).join(" ")}{" "}
+              <span style={{ color: "#FBB934" }}>
+                {hero.headline.split(" ").slice(5).join(" ")}
+              </span>
             </h1>
 
             {/* Subheadline */}
             <p
-              className="text-lg text-[#4B5563] leading-relaxed mb-9 max-w-xl"
-              style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+              style={{
+                fontSize: "clamp(14px, 2vw, 16px)",
+                color: "rgba(255,255,255,0.65)",
+                lineHeight: "1.55",
+                maxWidth: "520px",
+              }}
             >
               {hero.subheadline}
             </p>
 
+            {/* Badge */}
+            <span
+              style={{
+                alignSelf: "flex-start",
+                display: "inline-flex",
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.05em",
+                backgroundColor: "#FBB934",
+                color: "#08233F",
+                borderRadius: "4px",
+                padding: "3px 10px",
+              }}
+            >
+              {hero.badge}
+            </span>
+
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 items-center mb-10">
+            <div
+              style={{
+                display: "flex",
+                gap: "12px",
+                flexWrap: "wrap",
+                alignItems: "center",
+                marginTop: "8px",
+              }}
+            >
               <a
                 href={REGISTRATION_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary flex items-center gap-2"
+                className="btn-gold"
               >
                 {hero.primaryCta}
-                <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
               </a>
-              <a
-                href="#courses"
-                className="btn-outline"
-              >
+              <a href="#courses" className="btn-ghost-gold">
                 {hero.secondaryCta}
               </a>
             </div>
 
-            {/* Trust line */}
             <p
-              className="text-xs text-[#9CA3AF] tracking-wide"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+              style={{
+                fontSize: "11px",
+                color: "rgba(255,255,255,0.3)",
+                letterSpacing: "0.05em",
+                marginTop: "4px",
+              }}
             >
-              {hero.eyebrow} &nbsp;·&nbsp; Delivered across Africa
+              Operated by Pathway to Salesforce · London, UK
             </p>
           </div>
 
-          {/* Right: student photo */}
-          <div className="relative w-full">
-            {/* Decorative corner shapes like rwandapreneur */}
-            <div
-              className="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-40 pointer-events-none"
-              style={{ background: "radial-gradient(circle, #FBB934 0%, transparent 70%)" }}
-              aria-hidden="true"
+          {/* ── Student photo — full width on mobile, right column on desktop ── */}
+          <div
+            className="relative w-full md:hidden"
+            style={{
+              height: "clamp(260px, 60vw, 380px)",
+              borderRadius: "8px 8px 0 0",
+              overflow: "hidden",
+              marginTop: "0",
+            }}
+          >
+            <Image
+              src="/images/people image.png"
+              alt="TechBridge for Africa participants working together"
+              fill
+              className="object-cover object-top"
+              sizes="100vw"
+              priority
             />
             <div
-              className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full opacity-30 pointer-events-none"
-              style={{ background: "radial-gradient(circle, #4CAF50 0%, transparent 70%)" }}
+              style={{
+                position: "absolute",
+                bottom: 0, left: 0, right: 0,
+                height: "80px",
+                background: "linear-gradient(to top, #08233F, transparent)",
+              }}
               aria-hidden="true"
             />
-
-            {/* Photo container */}
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-black/6">
-              <Image
-                src="/images/people image.png"
-                alt="TechBridge for Africa participants working on laptops"
-                width={560}
-                height={680}
-                className="w-full h-auto object-cover object-top"
-                priority
-              />
-              {/* Bottom overlay */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-20"
-                style={{ background: "linear-gradient(to top, rgba(1,19,65,0.7), transparent)" }}
-                aria-hidden="true"
-              />
-              <div className="absolute bottom-4 left-5">
-                <p
-                  className="text-[0.6rem] text-white/80 tracking-[0.18em] uppercase"
-                  style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-                >
-                  TechBridge for Africa participants
-                </p>
-              </div>
-            </div>
-
-            {/* Logo colour bar */}
-            <div className="flex mt-3 gap-1 rounded-full overflow-hidden h-1" aria-hidden="true">
-              <div className="flex-1 bg-[#4CAF50]" />
-              <div className="flex-1 bg-[#011341]" />
-              <div className="flex-[0.4] bg-[#FBB934]" />
-            </div>
+            <p
+              style={{
+                position: "absolute",
+                bottom: "10px",
+                left: "14px",
+                fontSize: "10px",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.55)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              TechBridge for Africa participants
+            </p>
           </div>
-
         </div>
+      </div>
+
+      {/* ── Desktop photo: sits absolutely on the right side ── */}
+      <div
+        className="hidden md:block absolute bottom-0 right-0 overflow-hidden"
+        style={{
+          width: "38%",
+          borderRadius: "8px 8px 0 0",
+          boxShadow: "0 0 60px rgba(0,0,0,0.4)",
+        }}
+        aria-hidden="false"
+      >
+        <Image
+          src="/images/people image.png"
+          alt="TechBridge for Africa participants working together"
+          width={560}
+          height={680}
+          className="w-full h-auto object-cover object-top"
+          priority
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0, left: 0, right: 0,
+            height: "80px",
+            background: "linear-gradient(to top, #08233F, transparent)",
+          }}
+          aria-hidden="true"
+        />
+        <p
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            left: "14px",
+            fontSize: "10px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.55)",
+            fontFamily: "var(--font-body)",
+          }}
+        >
+          TechBridge for Africa participants
+        </p>
       </div>
     </section>
   );

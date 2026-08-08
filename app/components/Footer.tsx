@@ -3,58 +3,50 @@ import { footer } from "@/app/content/copy";
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="bg-[#011341] text-white">
-      <div className="section-container py-14 lg:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto] gap-10 lg:gap-16 mb-12">
-
+    <footer role="contentinfo" style={{ backgroundColor: "#08233F" }}>
+      {/* Top — multi-column */}
+      <div className="rp-container" style={{ paddingTop: "60px", paddingBottom: "0" }}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto] gap-10 lg:gap-16 pb-10"
+          style={{ borderBottom: "0.5px solid rgba(255,255,255,0.1)" }}
+        >
           {/* Brand */}
-          <div className="max-w-xs">
-            <div className="mb-4 inline-block bg-white rounded-lg px-3 py-2">
+          <div style={{ maxWidth: "280px" }}>
+            <div style={{ backgroundColor: "#FFFFFF", display: "inline-block", padding: "6px 10px", borderRadius: "6px", marginBottom: "16px" }}>
               <Image
                 src="/images/logo4.png"
                 alt="TechBridge 4 Africa's Future"
-                width={150}
-                height={44}
+                width={140}
+                height={42}
                 className="h-8 w-auto object-contain"
               />
             </div>
-            <div className="flex gap-0.5 mb-4 w-20 h-0.5 rounded-full overflow-hidden" aria-hidden="true">
-              <div className="flex-1 bg-[#4CAF50]" />
-              <div className="flex-1 bg-white/30" />
-              <div className="flex-[0.4] bg-[#FBB934]" />
+            {/* Colour bar */}
+            <div style={{ display: "flex", gap: "2px", marginBottom: "16px", height: "2px", width: "80px" }} aria-hidden="true">
+              <div style={{ flex: 1, backgroundColor: "#4CAF50" }} />
+              <div style={{ flex: 1, backgroundColor: "rgba(255,255,255,0.3)" }} />
+              <div style={{ flex: "0 0 30%", backgroundColor: "#FBB934" }} />
             </div>
-            <p
-              className="text-[0.6rem] font-semibold tracking-widest uppercase text-white/40 mb-3"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-            >
+            <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: "12px" }}>
               {footer.operatedBy}
             </p>
-            <p
-              className="text-sm text-white/50 leading-relaxed"
-              style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-            >
+            <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", lineHeight: "1.6" }}>
               {footer.tagline}
             </p>
           </div>
 
           {/* Nav */}
           <nav aria-label="Footer navigation">
-            <p
-              className="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-white/30 mb-4"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-            >
+            <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "16px" }}>
               Navigate
             </p>
-            <ul className="space-y-2.5" role="list">
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {footer.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/55 hover:text-white transition-colors focus-visible:outline-[#4CAF50]"
-                    style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-                    {...(link.href.startsWith("http")
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
+                    style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.15s" }}
+                    className="hover:text-white"
+                    {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   >
                     {link.label}
                   </a>
@@ -65,19 +57,16 @@ export default function Footer() {
 
           {/* Legal */}
           <nav aria-label="Legal navigation">
-            <p
-              className="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-white/30 mb-4"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-            >
+            <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: "16px" }}>
               Legal
             </p>
-            <ul className="space-y-2.5" role="list">
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {footer.legal.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/55 hover:text-white transition-colors focus-visible:outline-[#4CAF50]"
-                    style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                    style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.15s" }}
+                    className="hover:text-white"
                   >
                     {link.label}
                   </a>
@@ -86,19 +75,18 @@ export default function Footer() {
             </ul>
           </nav>
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p
-            className="text-xs text-white/30"
-            style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-          >
+      {/* Bottom bar */}
+      <div className="rp-container">
+        <div
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
+        >
+          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>
             {footer.copyright}
           </p>
-          <p
-            className="text-xs text-white/25 max-w-sm sm:text-right"
-            style={{ fontFamily: "var(--font-hanken), sans-serif" }}
-          >
+          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)", maxWidth: "400px", textAlign: "right", lineHeight: 1.5 }}>
             {footer.deliveryPartners}
           </p>
         </div>

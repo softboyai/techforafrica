@@ -2,35 +2,27 @@ import { about } from "@/app/content/copy";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-24 lg:py-32 bg-[#F7F9F6]"
-      aria-labelledby="about-heading"
-    >
-      <div className="section-container">
-        <div className="grid lg:grid-cols-[1fr_360px] gap-16 lg:gap-20 items-start">
+    <section id="about" className="section-navy" aria-labelledby="about-heading">
+      <div className="rp-container" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* Left: copy */}
+          {/* Left */}
           <div>
-            <p
-              className="text-xs font-semibold tracking-widest uppercase text-[#0F3D3A] mb-3"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-            >
+            <span className="eyebrow-tag eyebrow-tag-navy mb-4 block" style={{ display: "inline-flex" }}>
               {about.eyebrow}
-            </p>
+            </span>
             <h2
               id="about-heading"
-              className="text-3xl lg:text-4xl font-bold text-[#011341] leading-tight mb-8"
-              style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+              className="heading-display heading-display-white"
+              style={{ fontSize: "clamp(28px, 4vw, 40px)", marginBottom: "2rem" }}
             >
               {about.headline}
             </h2>
-            <div className="space-y-4">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {about.body.map((para, i) => (
                 <p
                   key={i}
-                  className="text-base text-[#4B5563] leading-relaxed"
-                  style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                  style={{ fontSize: "15px", color: "rgba(255,255,255,0.7)", lineHeight: "1.6" }}
                 >
                   {para}
                 </p>
@@ -38,51 +30,81 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: operator + partner cards */}
-          <div className="space-y-5 lg:sticky lg:top-24">
-
-            {/* Operator */}
+          {/* Right: operator + partners */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {/* Operator card — gold accent */}
             <div
-              className="p-6 rounded-2xl"
-              style={{ backgroundColor: "#011341" }}
+              style={{
+                backgroundColor: "#FBB934",
+                borderRadius: "8px",
+                padding: "30px 25px",
+              }}
             >
               <p
-                className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-white/50 mb-2"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "#08233F",
+                  marginBottom: "8px",
+                }}
               >
                 {about.operatorLabel}
               </p>
               <p
-                className="text-lg font-bold text-white mb-1"
-                style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 400,
+                  color: "#08233F",
+                  lineHeight: 1.2,
+                  marginBottom: "4px",
+                  fontFamily: "var(--font-body)",
+                }}
               >
                 {about.operatorName}
               </p>
-              <p
-                className="text-xs text-white/55"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-              >
+              <p style={{ fontSize: "13px", color: "rgba(8,35,63,0.7)" }}>
                 {about.operatorLocation}
               </p>
             </div>
 
-            {/* Partners */}
-            <div className="card p-6">
+            {/* Partners card */}
+            <div
+              style={{
+                backgroundColor: "rgba(255,255,255,0.06)",
+                border: "0.5px solid rgba(255,255,255,0.15)",
+                borderRadius: "8px",
+                padding: "25px",
+              }}
+            >
               <p
-                className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-[#9CA3AF] mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.5)",
+                  marginBottom: "12px",
+                }}
               >
                 {about.partnerLabel}
               </p>
-              <ul className="space-y-2.5" role="list">
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
                 {about.partnerNames.map((name) => (
                   <li
                     key={name}
-                    className="flex items-center gap-2.5 text-sm font-medium text-[#111827]"
-                    style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                    className="flex items-center gap-2.5"
+                    style={{ fontSize: "15px", color: "rgba(255,255,255,0.85)" }}
                   >
                     <span
-                      className="w-2 h-2 rounded-full shrink-0 bg-[#4CAF50]"
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        backgroundColor: "#FBB934",
+                        flexShrink: 0,
+                      }}
                       aria-hidden="true"
                     />
                     {name}
@@ -90,8 +112,14 @@ export default function About() {
                 ))}
               </ul>
               <p
-                className="mt-4 text-xs text-[#6B7280] border-t border-black/6 pt-3 leading-relaxed"
-                style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+                style={{
+                  fontSize: "12px",
+                  color: "rgba(255,255,255,0.4)",
+                  borderTop: "0.5px solid rgba(255,255,255,0.1)",
+                  paddingTop: "12px",
+                  marginTop: "16px",
+                  lineHeight: "1.5",
+                }}
               >
                 Delivery partners only. Programme operated by Pathway to Salesforce, London.
               </p>

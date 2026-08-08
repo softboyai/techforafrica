@@ -4,50 +4,61 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { faq } from "@/app/content/copy";
 
-function AccordionItem({
-  question, answer, index, isOpen, onToggle,
-}: {
+function Item({ question, answer, index, isOpen, onToggle }: {
   question: string; answer: string; index: number; isOpen: boolean; onToggle: () => void;
 }) {
-  const id = `faq-answer-${index}`;
-  const triggerId = `faq-trigger-${index}`;
   return (
-    <div className="border-b border-black/8 last:border-b-0">
+    <div style={{ borderBottom: "0.5px solid rgba(0,0,0,0.12)" }}>
       <h3>
         <button
-          id={triggerId}
           type="button"
           aria-expanded={isOpen}
-          aria-controls={id}
+          aria-controls={`faq-${index}`}
           onClick={onToggle}
-          className="w-full flex items-start justify-between gap-4 py-5 text-left focus-visible:outline-[#4CAF50] focus-visible:outline-offset-2 group"
+          className="w-full flex items-start justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2"
+          style={{ padding: "20px 0", cursor: "pointer", background: "none", border: "none" }}
         >
           <span className="flex items-start gap-3 flex-1">
             <span
-              className="text-[0.6rem] font-semibold tracking-widest uppercase mt-1 text-[#9CA3AF] shrink-0 w-5"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+              style={{
+                fontSize: "12px",
+                fontWeight: 500,
+                color: "rgba(0,0,0,0.35)",
+                fontFamily: "var(--font-body)",
+                marginTop: "2px",
+                minWidth: "20px",
+              }}
               aria-hidden="true"
             >
               {String(index + 1).padStart(2, "0")}
             </span>
             <span
-              className="text-base font-medium text-[#111827] leading-snug group-hover:text-[#011341] transition-colors"
-              style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                color: isOpen ? "#08233F" : "#000000",
+                lineHeight: 1.3,
+                fontFamily: "var(--font-body), sans-serif",
+              }}
             >
               {question}
             </span>
           </span>
-          <span className="shrink-0 mt-0.5 text-[#011341]" aria-hidden="true">
-            {isOpen
-              ? <Minus size={18} strokeWidth={1.75} />
-              : <Plus size={18} strokeWidth={1.75} />}
+          <span style={{ flexShrink: 0, color: "#08233F", marginTop: "2px" }} aria-hidden="true">
+            {isOpen ? <Minus size={18} strokeWidth={1.5} /> : <Plus size={18} strokeWidth={1.5} />}
           </span>
         </button>
       </h3>
-      <div id={id} role="region" aria-labelledby={triggerId} hidden={!isOpen}>
+      <div id={`faq-${index}`} hidden={!isOpen}>
         <p
-          className="pl-8 pb-5 text-sm text-[#6B7280] leading-relaxed max-w-2xl"
-          style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+          style={{
+            paddingLeft: "32px",
+            paddingBottom: "20px",
+            fontSize: "14px",
+            color: "rgba(0,0,0,0.65)",
+            lineHeight: "1.6",
+            maxWidth: "640px",
+          }}
         >
           {answer}
         </p>
@@ -57,36 +68,35 @@ function AccordionItem({
 }
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const toggle = (i: number) => setOpenIndex((p) => (p === i ? null : i));
-
+  const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-[#F7F9F6]" aria-labelledby="faq-heading">
-      <div className="section-container">
-        <div className="grid lg:grid-cols-[300px_1fr] gap-16 items-start">
-          {/* Left */}
-          <div className="lg:sticky lg:top-24">
-            <p
-              className="text-xs font-semibold tracking-widest uppercase text-[#0F3D3A] mb-3"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
-            >
+    <section id="faq" className="section-cream" aria-labelledby="faq-heading">
+      <div className="rp-container" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+        <div className="grid lg:grid-cols-[280px_1fr] gap-16 items-start">
+          {/* Left sticky heading */}
+          <div style={{ position: "sticky", top: "80px" }}>
+            <span className="eyebrow-tag mb-3 block" style={{ display: "inline-flex" }}>
               {faq.eyebrow}
-            </p>
+            </span>
             <h2
               id="faq-heading"
-              className="text-3xl lg:text-4xl font-bold text-[#011341] leading-tight mb-5"
-              style={{ fontFamily: "var(--font-bricolage), sans-serif" }}
+              className="heading-display"
+              style={{ fontSize: "clamp(28px, 3.5vw, 36px)", marginBottom: "16px" }}
             >
               {faq.headline}
             </h2>
-            <div className="w-10 h-1 bg-[#4CAF50] rounded-full" aria-hidden="true" />
+            <div style={{ width: "32px", height: "2px", backgroundColor: "#FBB934", borderRadius: "2px" }} aria-hidden="true" />
           </div>
-          {/* Right */}
-          <div className="border-t border-black/8">
+          {/* Right accordion */}
+          <div style={{ borderTop: "0.5px solid rgba(0,0,0,0.12)" }}>
             {faq.items.map((item, i) => (
-              <AccordionItem
-                key={i} question={item.question} answer={item.answer}
-                index={i} isOpen={openIndex === i} onToggle={() => toggle(i)}
+              <Item
+                key={i}
+                question={item.question}
+                answer={item.answer}
+                index={i}
+                isOpen={open === i}
+                onToggle={() => setOpen(open === i ? null : i)}
               />
             ))}
           </div>

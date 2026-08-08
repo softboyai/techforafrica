@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { advertStrip } from "@/app/content/copy";
 
 export default function AdvertStrip() {
@@ -17,47 +17,69 @@ export default function AdvertStrip() {
   return (
     <aside
       aria-label="Programme announcements"
-      className="bg-[#011341] border-y border-[#011341]/80"
+      style={{ backgroundColor: "#08233F", borderBottom: "0.5px solid rgba(255,255,255,0.1)" }}
     >
-      <div className="section-container">
-        <div className="flex items-stretch min-h-[50px]">
+      <div className="rp-container">
+        <div className="flex items-stretch" style={{ minHeight: "50px" }}>
           {/* Label */}
           <div
-            className="flex items-center px-4 shrink-0 border-r border-white/15"
+            className="flex items-center shrink-0"
+            style={{
+              paddingRight: "16px",
+              borderRight: "0.5px solid rgba(255,255,255,0.15)",
+              marginRight: "16px",
+            }}
             aria-hidden="true"
           >
             <span
-              className="text-[0.55rem] font-bold tracking-[0.2em] uppercase text-[#FBB934]"
-              style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#FBB934",
+                fontFamily: "var(--font-body)",
+              }}
             >
               Notice
             </span>
           </div>
           {/* Message */}
           <div
-            className="flex-1 flex items-center px-5 py-3 overflow-hidden"
+            className="flex-1 flex items-center overflow-hidden"
             role="status"
             aria-live="polite"
             aria-atomic="true"
           >
             <p
               key={current}
-              className="text-sm text-white/85"
-              style={{ fontFamily: "var(--font-hanken), sans-serif" }}
+              style={{
+                fontSize: "13px",
+                color: "rgba(255,255,255,0.80)",
+                fontFamily: "var(--font-body)",
+                lineHeight: 1.4,
+              }}
             >
               {messages[current]}
             </p>
           </div>
           {/* Dots */}
-          <div className="flex items-center gap-1.5 px-4 shrink-0" aria-hidden="true">
+          <div className="flex items-center gap-1.5 pl-4 shrink-0" aria-hidden="true">
             {messages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
                 aria-label={`Message ${i + 1}`}
-                className={`w-1.5 h-1.5 rounded-full transition-colors duration-200 focus-visible:outline-[#FBB934] ${
-                  i === current ? "bg-[#FBB934]" : "bg-white/25"
-                }`}
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  backgroundColor: i === current ? "#FBB934" : "rgba(255,255,255,0.25)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                  padding: 0,
+                }}
               />
             ))}
           </div>
