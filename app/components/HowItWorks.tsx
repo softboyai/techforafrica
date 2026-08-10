@@ -4,89 +4,46 @@ import { howItWorks, REGISTRATION_URL } from "@/app/content/copy";
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="section-white" aria-labelledby="hiw-heading">
-      <div className="rp-container" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
-          <div style={{ maxWidth: "620px" }}>
-            <span className="eyebrow-tag mb-3 block" style={{ display: "inline-flex" }}>
-              {howItWorks.eyebrow}
-            </span>
-            <h2
-              id="hiw-heading"
-              className="heading-display"
-              style={{ fontSize: "clamp(28px, 4vw, 40px)" }}
-            >
+      <div className="rp-container" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div style={{ maxWidth: "580px" }}>
+            <span className="eyebrow-tag mb-3 block">{howItWorks.eyebrow}</span>
+            <h2 id="hiw-heading" className="heading-display heading-display-navy"
+              style={{ fontSize: "clamp(28px,4vw,42px)" }}>
               {howItWorks.headline}
             </h2>
           </div>
         </div>
 
-        {/* Steps — left border line, number + content */}
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {howItWorks.steps.map((step, i) => {
             const isLast = i === howItWorks.steps.length - 1;
+            /* Alternate accent colours: navy, green, orange */
+            const accent = ["#002098", "#60D030", "#F88000", "#002098", "#60D030"][i];
             return (
               <div
                 key={step.number}
-                className="flex gap-6 sm:gap-8"
                 style={{
-                  paddingLeft: "3%",
-                  paddingRight: "3%",
-                  paddingTop: "1%",
-                  paddingBottom: "1%",
-                  borderLeft: "0.5px solid rgba(0,0,0,0.15)",
-                  marginBottom: "40px",
-                  transition: "border-color 0.2s",
+                  display: "flex",
+                  gap: "24px",
+                  alignItems: "flex-start",
+                  padding: "28px 0",
+                  borderBottom: isLast ? "none" : "0.5px solid rgba(0,0,0,0.08)",
                 }}
               >
-                {/* Number */}
-                <div
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "8px",
-                    backgroundColor: "#08233F",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                  aria-hidden="true"
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: 600,
-                      color: "#FBB934",
-                      fontFamily: "var(--font-body)",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
+                {/* Step bubble */}
+                <div style={{ width: "48px", height: "48px", borderRadius: "8px", backgroundColor: accent, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <span style={{ fontSize: "12px", fontWeight: 700, color: "#FFFFFF", fontFamily: "var(--font-body)", letterSpacing: "0.04em" }}>
                     {step.number}
                   </span>
                 </div>
                 {/* Content */}
                 <div style={{ flex: 1 }}>
-                  <h3
-                    style={{
-                      fontFamily: "var(--font-body), sans-serif",
-                      fontSize: "20px",
-                      fontWeight: 400,
-                      color: "#000000",
-                      marginBottom: "8px",
-                      lineHeight: 1.2,
-                    }}
-                  >
+                  <h3 style={{ fontFamily: "var(--font-body)", fontSize: "18px", fontWeight: 500, color: "#002098", marginBottom: "6px", lineHeight: "1.3" }}>
                     {step.title}
                   </h3>
-                  <p
-                    style={{
-                      fontSize: "14px",
-                      color: "rgba(0,0,0,0.65)",
-                      lineHeight: 1.6,
-                      maxWidth: "520px",
-                    }}
-                  >
+                  <p style={{ fontSize: "14px", color: "rgba(0,0,0,0.60)", lineHeight: "1.65", maxWidth: "560px", fontFamily: "var(--font-body)" }}>
                     {step.description}
                   </p>
                 </div>
@@ -95,16 +52,12 @@ export default function HowItWorks() {
           })}
         </div>
 
-        <a
-          href={REGISTRATION_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-gold flex items-center gap-3 w-fit"
-          style={{ marginTop: "8px" }}
-        >
-          Register now. Start with step one.
-          <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
-        </a>
+        <div style={{ marginTop: "32px" }}>
+          <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Register now. Start with step one.
+            <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );
