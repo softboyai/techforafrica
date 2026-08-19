@@ -11,7 +11,7 @@ function StarIcon({ color }: { color: string }) {
   );
 }
 
-const ICON_COLORS = ["#002098", "#F88000", "#60D030"];
+const ICON_COLORS = ["#002098", "#F88000", "#96C0D8"];
 
 export default function Partners() {
   return (
@@ -44,7 +44,7 @@ export default function Partners() {
                 <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(0,0,0,0.38)", fontFamily: "var(--font-body)" }}>
                   {partner.region}
                 </p>
-                <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", backgroundColor: "rgba(76,175,80,0.12)", color: "#60D030", border: "0.5px solid rgba(76,175,80,0.30)", borderRadius: "4px", padding: "2px 8px", fontFamily: "var(--font-body)" }}>
+                <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", backgroundColor: "rgba(150,192,216,0.22)", color: "#96C0D8", border: "0.5px solid rgba(150,192,216,0.45)", borderRadius: "4px", padding: "2px 8px", fontFamily: "var(--font-body)" }}>
                   Delivery partner
                 </span>
               </div>

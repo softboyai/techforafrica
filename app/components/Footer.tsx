@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
               {/* Logo colour bar */}
               <div style={{ display: "flex", gap: "2px", height: "3px", width: "64px", marginBottom: "16px", borderRadius: "2px", overflow: "hidden" }} aria-hidden="true">
-                <div style={{ flex: 1, backgroundColor: "#60D030" }} />
+                <div style={{ flex: 1, backgroundColor: "#96C0D8" }} />
                 <div style={{ flex: 1, backgroundColor: "rgba(255,255,255,0.25)" }} />
                 <div style={{ width: "16px", backgroundColor: "#F88000" }} />
               </div>
@@ -101,7 +101,7 @@ export default function Footer() {
                   </span>
                 </a>
                 <a href={footer.contact.phoneHref} style={{ display: "flex", alignItems: "flex-start", gap: "10px", textDecoration: "none" }}>
-                  <Phone size={14} strokeWidth={1.5} style={{ color: "#60D030", flexShrink: 0, marginTop: "1px" }} aria-hidden="true" />
+                  <Phone size={14} strokeWidth={1.5} style={{ color: "#96C0D8", flexShrink: 0, marginTop: "1px" }} aria-hidden="true" />
                   <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: "1.5", fontFamily: "var(--font-body)" }}>
                     {footer.contact.phone}
                   </span>

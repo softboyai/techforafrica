@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { whoItsFor, REGISTRATION_URL } from "@/app/content/copy";
 
-const ICON_COLORS = ["#002098", "#60D030", "#002098", "#F88000"];
+const ICON_COLORS = ["#002098", "#96C0D8", "#002098", "#F88000"];
 
 function StarIcon({ color }: { color: string }) {
   return (
@@ -56,7 +56,7 @@ export default function WhoItsFor() {
           ))}
         </div>
 
-        <p style={{ marginTop: "40px", fontSize: "14px", color: "rgba(0,0,0,0.50)", borderLeft: "3px solid #60D030", paddingLeft: "14px", lineHeight: "1.6", maxWidth: "480px", fontFamily: "var(--font-body)" }}>
+        <p style={{ marginTop: "40px", fontSize: "14px", color: "rgba(0,0,0,0.50)", borderLeft: "3px solid #96C0D8", paddingLeft: "14px", lineHeight: "1.6", maxWidth: "480px", fontFamily: "var(--font-body)" }}>
           {whoItsFor.closing}
         </p>
       </div>

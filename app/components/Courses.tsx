@@ -30,11 +30,11 @@ export default function Courses() {
         <div className="grid lg:grid-cols-2 gap-6">
           {courses.items.map((course) => {
             const isSalesforce = course.track === "salesforce";
-            /* Salesforce → navy top, AI → green top */
-            const topBg    = isSalesforce ? "#002098" : "#60D030";
+            /* Salesforce uses navy; AI uses the light blue accent */
+            const topBg    = isSalesforce ? "#002098" : "#96C0D8";
             const iconClr  = isSalesforce ? "#F88000" : "#FFFFFF";
             const tagBg    = isSalesforce ? "#F88000" : "#FFFFFF";
-            const tagClr   = isSalesforce ? "#002098" : "#60D030";
+            const tagClr   = isSalesforce ? "#002098" : "#96C0D8";
 
             return (
               <article key={course.track} className="service-card" aria-label={`${course.title} track`}>
@@ -60,7 +60,7 @@ export default function Courses() {
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "7px" }}>
                     {course.outcomes.map((o) => (
                       <li key={o} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "13px", color: "rgba(0,0,0,0.70)", fontFamily: "var(--font-body)" }}>
-                        <CheckCircle size={14} strokeWidth={2} style={{ color: isSalesforce ? "#002098" : "#60D030", flexShrink: 0, marginTop: "2px" }} aria-hidden="true" />
+                        <CheckCircle size={14} strokeWidth={2} style={{ color: isSalesforce ? "#002098" : "#96C0D8", flexShrink: 0, marginTop: "2px" }} aria-hidden="true" />
                         {o}
                       </li>
                     ))}

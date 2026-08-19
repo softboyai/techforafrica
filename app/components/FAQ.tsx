@@ -55,7 +55,7 @@ export default function FAQ() {
               {faq.headline}
             </h2>
             {/* Green accent bar */}
-            <div style={{ width: "32px", height: "3px", backgroundColor: "#60D030", borderRadius: "2px" }} aria-hidden="true" />
+            <div style={{ width: "32px", height: "3px", backgroundColor: "#96C0D8", borderRadius: "2px" }} aria-hidden="true" />
           </div>
 
           {/* Right accordion */}

@@ -105,13 +105,33 @@ export const courses = {
 
 // ─── About ────────────────────────────────────────────────────────────────
 export const about = {
-  eyebrow: "About the programme",
-  headline: "Operated by Pathway to Salesforce, delivered across Africa.",
-  body: [
-    "TechBridge for Africa is a programme operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK.",
-    "The programme is delivered in collaboration with three Rwandan technology companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide local context, regional coordination, and on-the-ground support for participants.",
-    "Pathway to Salesforce sets the curriculum, maintains the quality standard, and is responsible for the programme's outcomes. The collaboration partners are not the operators of TechBridge for Africa. They are trusted delivery partners who extend the programme's reach.",
-  ],
+  eyebrow: "About our programme",
+  headline: "TechBridge for Africa's Future",
+  programLabel: "About Our Program",
+  program:
+    "Our programme focuses on AI and Salesforce CRM certification training, designed to equip learners with the skills and confidence needed for today's digital workforce. We combine practical learning with Pathway to Salesforce UK, London — an online training school certification. We exist to bridge the gap between talent and opportunity, building a more inclusive and digitally skilled future.",
+  mission: {
+    label: "Mission",
+    text: "To equip youth and women with in-demand AI and Salesforce CRM international certification and job readiness programmes that open pathways to meaningful international employment.",
+  },
+  vision: {
+    label: "Vision",
+    text: "To become a leading tech-based programme in Africa for inclusive digital transformation for youth and women — through equal access to technology skills, global opportunities and sustainable careers in the tech ecosystem.",
+  },
+  objectives: {
+    label: "Objectives",
+    items: [
+      "Provide high quality AI and Salesforce CRM training that builds practical job readiness skills.",
+      "Build confidence, leadership and professional readiness required by the international marketplace.",
+      "Bridge the technology skills gap by offering accessible and inclusive learning programmes.",
+      "Connect learners to internships, mentorship and job placement.",
+      "Foster a strong community of certified professionals.",
+    ],
+  },
+  solution: {
+    label: "Our Solution",
+    text: "Building Africa's next generation of digitally skilled, employable and entrepreneurial youth and women.",
+  },
   operatorLabel: "Programme Operator",
   operatorName: "Pathway to Salesforce",
   operatorLocation: "London, United Kingdom",
@@ -273,8 +293,8 @@ export const footer = {
   contact: {
     email: "techbridgeforafrica@gmail.com",
     emailHref: "mailto:techbridgeforafrica@gmail.com",
-    phone: "+250 788 694 060",
-    phoneHref: "tel:+250788694060",
+    phone: "+250788353033",
+    phoneHref: "tel:+250788353033",
     address: "Kigali, Rwanda",
   },
   copyright: `© ${new Date().getFullYear()} TechBridge for Africa. All rights reserved.`,

@@ -20,7 +20,7 @@ export default function Nav() {
       style={{ backgroundColor: "#002098", position: "fixed", top: 0, left: 0, right: 0, zIndex: 50 }}
     >
       <div className="rp-container">
-        <div style={{ height: "64px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ height: "56px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
           {/* Logo */}
           <a href="#" aria-label="TechBridge for Africa home" style={{ flexShrink: 0, lineHeight: 0 }}>
@@ -29,7 +29,7 @@ export default function Nav() {
               alt="TechBridge 4 Africa's Future"
               width={150}
               height={46}
-              style={{ height: "38px", width: "auto", objectFit: "contain", display: "block" }}
+              style={{ height: "34px", width: "auto", objectFit: "contain", display: "block" }}
               priority
             />
           </a>

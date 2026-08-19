@@ -19,8 +19,8 @@ export default function HowItWorks() {
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {howItWorks.steps.map((step, i) => {
             const isLast = i === howItWorks.steps.length - 1;
-            /* Alternate accent colours: navy, green, orange */
-            const accent = ["#002098", "#60D030", "#F88000", "#002098", "#60D030"][i];
+            /* Alternate accent colours: navy, light blue, orange */
+            const accent = ["#002098", "#96C0D8", "#F88000", "#002098", "#96C0D8"][i];
             return (
               <div
                 key={step.number}

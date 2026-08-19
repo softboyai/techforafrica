@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero"
-      style={{ backgroundColor: "#002098", paddingTop: "64px", minHeight: "100svh", display: "flex", flexDirection: "column" }}
+      style={{ backgroundColor: "#002098", paddingTop: "56px", minHeight: "100svh", display: "flex", flexDirection: "column" }}
     >
       {/* ── DESKTOP: side-by-side, copy bottom-left, photo right ── */}
       <div className="hidden md:flex hero-grid" style={{ flex: 1 }}>
@@ -32,7 +32,7 @@ export default function Hero() {
             {hero.subheadline}
           </p>
 
-          {/* Green badge — logo green */}
+          {/* Application status badge */}
           <span
             style={{
               alignSelf: "flex-start",
@@ -40,7 +40,7 @@ export default function Hero() {
               fontSize: "11px",
               fontWeight: 700,
               letterSpacing: "0.05em",
-              backgroundColor: "#60D030",
+              backgroundColor: "#96C0D8",
               color: "#FFFFFF",
               borderRadius: "4px",
               padding: "3px 10px",
@@ -79,12 +79,12 @@ export default function Hero() {
           <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "120px", background: "linear-gradient(to right, #002098, transparent)" }} aria-hidden="true" />
           {/* Bottom fade */}
           <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "80px", background: "linear-gradient(to top, #002098, transparent)" }} aria-hidden="true" />
-          {/* Green accent bar at bottom-left */}
+          {/* Accent bar at bottom-left */}
           <div
             style={{ position: "absolute", bottom: "20px", left: "24px", display: "flex", gap: "4px" }}
             aria-hidden="true"
           >
-            <div style={{ width: "24px", height: "3px", backgroundColor: "#60D030", borderRadius: "2px" }} />
+            <div style={{ width: "24px", height: "3px", backgroundColor: "#96C0D8", borderRadius: "2px" }} />
             <div style={{ width: "24px", height: "3px", backgroundColor: "#F88000", borderRadius: "2px" }} />
             <div style={{ width: "12px", height: "3px", backgroundColor: "rgba(255,255,255,0.4)", borderRadius: "2px" }} />
           </div>
@@ -93,7 +93,7 @@ export default function Hero() {
 
       {/* ── MOBILE: stacked — copy then photo ── */}
       <div className="flex flex-col md:hidden" style={{ flex: 1 }}>
-        <div className="rp-container" style={{ display: "flex", flexDirection: "column", gap: "16px", paddingTop: "36px", paddingBottom: "32px" }}>
+        <div className="rp-container" style={{ display: "flex", flexDirection: "column", gap: "16px", paddingTop: "18px", paddingBottom: "32px" }}>
           <span className="eyebrow-tag eyebrow-tag-dark" style={{ alignSelf: "flex-start" }}>
             {hero.eyebrow}
           </span>
@@ -104,7 +104,7 @@ export default function Hero() {
           <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: "1.6" }}>
             {hero.subheadline}
           </p>
-          <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "11px", fontWeight: 700, backgroundColor: "#60D030", color: "#FFFFFF", borderRadius: "4px", padding: "3px 10px", fontFamily: "var(--font-body)" }}>
+          <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "11px", fontWeight: 700, backgroundColor: "#96C0D8", color: "#002098", borderRadius: "4px", padding: "3px 10px", fontFamily: "var(--font-body)" }}>
             {hero.badge}
           </span>
           <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ alignSelf: "flex-start" }}>
