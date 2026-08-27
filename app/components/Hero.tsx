@@ -24,11 +24,10 @@ export default function Hero() {
             className="heading-display heading-display-white"
             style={{ fontSize: "clamp(36px,4.8vw,58px)", lineHeight: "1.1em", maxWidth: "560px" }}
           >
-            Build a tech career<br />
-            <span style={{ color: "#F88000" }}>that crosses borders.</span>
+            {hero.headline}
           </h1>
 
-          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.68)", lineHeight: "1.6", maxWidth: "460px" }}>
+          <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.68)", lineHeight: "1.6", maxWidth: "560px" }}>
             {hero.subheadline}
           </p>
 
@@ -98,8 +97,7 @@ export default function Hero() {
             {hero.eyebrow}
           </span>
           <h1 className="heading-display heading-display-white" style={{ fontSize: "clamp(28px,8vw,40px)", lineHeight: "1.1em" }}>
-            Build a tech career{" "}
-            <span style={{ color: "#F88000" }}>that crosses borders.</span>
+            {hero.headline}
           </h1>
           <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: "1.6" }}>
             {hero.subheadline}

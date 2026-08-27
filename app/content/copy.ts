@@ -19,9 +19,9 @@ export const nav = {
 // ─── Hero ─────────────────────────────────────────────────────────────────
 export const hero = {
   eyebrow: "Pathway to Salesforce · London, UK",
-  headline: "Build a tech career that crosses borders.",
+  headline: "TechBridge 4 Africa's Future",
   subheadline:
-    "TechBridge for Africa is a structured training program that helps you master Salesforce CRM or Applied AI Skills and step into roles that global companies actually hire for.",
+    "We are a corporate technology-based training program working under Pathway to Salesforce, based in UK-London, helping you transition into tech, master Salesforce and AI skills, and embrace the digital economy confidently in collaboration with local tech companies such as One Africa Digital, Afrinnovators, and Nova Core Hub.",
   primaryCta: "Register for the Programme",
   secondaryCta: "Explore Courses",
   badge: "Now accepting applications",
