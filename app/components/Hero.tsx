@@ -2,6 +2,16 @@
 import { ArrowRight } from "lucide-react";
 import { hero, REGISTRATION_URL } from "@/app/content/copy";
 
+function LogoColoredHeadline() {
+  return (
+    <>
+      <span style={{ color: "#60D030" }}>Tech</span>
+      <span style={{ color: "#FFFFFF" }}>Bridge</span>{" "}
+      <span style={{ color: "#F88000" }}>4 Africa&apos;s Future</span>
+    </>
+  );
+}
+
 export default function Hero() {
   return (
     <section
@@ -24,7 +34,7 @@ export default function Hero() {
             className="heading-display heading-display-white"
             style={{ fontSize: "clamp(36px,4.8vw,58px)", lineHeight: "1.1em", maxWidth: "560px" }}
           >
-            {hero.headline}
+            <LogoColoredHeadline />
           </h1>
 
           <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.68)", lineHeight: "1.6", maxWidth: "560px" }}>
@@ -97,7 +107,7 @@ export default function Hero() {
             {hero.eyebrow}
           </span>
           <h1 className="heading-display heading-display-white" style={{ fontSize: "clamp(28px,8vw,40px)", lineHeight: "1.1em" }}>
-            {hero.headline}
+            <LogoColoredHeadline />
           </h1>
           <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: "1.6" }}>
             {hero.subheadline}
