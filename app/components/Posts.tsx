@@ -5,7 +5,7 @@ import { REGISTRATION_URL } from "@/app/content/copy";
 const post = {
   category: "Featured",
   date: "2025",
-  title: "Pathway to Salesforce â€” Powering TechBridge for Africa",
+  title: "Pathway to Salesforce — Powering TechBridge for Africa",
   excerpt:
     "Pathway to Salesforce, based in London UK, is the operator behind TechBridge for Africa. Through this partnership, learners across Rwanda and Africa gain access to internationally recognised Salesforce CRM and Applied AI certification training.",
   image: "/images/PATHWAY.jpeg",
@@ -47,22 +47,15 @@ export default function Posts() {
           }}
           className="md:grid-cols-2"
         >
-          {/* Left â€” image */}
-          <div style={{ position: "relative", minHeight: "320px" }}>
+          {/* Left — image contained cleanly */}
+          <div style={{ position: "relative", minHeight: "360px", backgroundColor: "#F9FAFB" }}>
             <Image
               src={post.image}
-              alt="Pathway to Salesforce â€” TechBridge for Africa"
+              alt="Pathway to Salesforce — TechBridge for Africa"
               fill
-              className="object-cover object-center"
+              className="object-contain object-center p-4"
               sizes="(min-width: 768px) 50vw, 100vw"
-            />
-            {/* Gradient overlay */}
-            <div
-              style={{
-                position: "absolute", inset: 0,
-                background: "linear-gradient(135deg, rgba(0,32,152,0.45) 0%, transparent 60%)",
-              }}
-              aria-hidden="true"
+              priority
             />
             {/* Category pill on image */}
             <span
@@ -74,13 +67,14 @@ export default function Posts() {
                 backgroundColor: "#F88000", color: "#FFFFFF",
                 borderRadius: "4px", padding: "3px 10px",
                 fontFamily: "var(--font-body)",
+                zIndex: 10,
               }}
             >
               {post.category}
             </span>
           </div>
 
-          {/* Right â€” content */}
+          {/* Right — content */}
           <div
             style={{
               backgroundColor: "#F5F4F0",
