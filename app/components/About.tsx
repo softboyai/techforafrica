@@ -1,4 +1,4 @@
-import { about } from "@/app/content/copy";
+﻿import { about } from "@/app/content/copy";
 
 export default function About() {
   return (
@@ -50,8 +50,8 @@ export default function About() {
               {/* Mission */}
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-                  <div style={{ width: "28px", height: "3px", backgroundColor: "#96C0D8", borderRadius: "2px" }} aria-hidden="true" />
-                  <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#96C0D8", fontFamily: "var(--font-body)" }}>
+                  <div style={{ width: "28px", height: "3px", backgroundColor: "#60D030", borderRadius: "2px" }} aria-hidden="true" />
+                  <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#60D030", fontFamily: "var(--font-body)" }}>
                     {about.mission.label}
                   </p>
                 </div>
@@ -80,8 +80,8 @@ export default function About() {
             {/* Objectives */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "18px" }}>
-                <div style={{ width: "28px", height: "3px", backgroundColor: "#96C0D8", borderRadius: "2px" }} aria-hidden="true" />
-                <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#96C0D8", fontFamily: "var(--font-body)" }}>
+                <div style={{ width: "28px", height: "3px", backgroundColor: "#60D030", borderRadius: "2px" }} aria-hidden="true" />
+                <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#60D030", fontFamily: "var(--font-body)" }}>
                   {about.objectives.label}
                 </p>
               </div>
@@ -93,11 +93,11 @@ export default function About() {
                         flexShrink: 0,
                         width: "24px", height: "24px",
                         borderRadius: "50%",
-                        backgroundColor: "rgba(150,192,216,0.15)",
-                        border: "1px solid rgba(150,192,216,0.35)",
+                        backgroundColor: "rgba(96,208,48,0.15)",
+                        border: "1px solid rgba(96,208,48,0.35)",
                         display: "flex", alignItems: "center", justifyContent: "center",
                         fontSize: "11px", fontWeight: 700,
-                        color: "#96C0D8",
+                        color: "#60D030",
                         marginTop: "1px",
                       }}
                       aria-hidden="true"
@@ -160,7 +160,7 @@ export default function About() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
                 {about.partnerNames.map((name) => (
                   <li key={name} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "15px", color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-body)" }}>
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: "#96C0D8", flexShrink: 0 }} aria-hidden="true" />
+                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", backgroundColor: "#60D030", flexShrink: 0 }} aria-hidden="true" />
                     {name}
                   </li>
                 ))}

@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+﻿import { ArrowRight } from "lucide-react";
 import { howItWorks, REGISTRATION_URL } from "@/app/content/copy";
 
 export default function HowItWorks() {
@@ -20,7 +20,7 @@ export default function HowItWorks() {
           {howItWorks.steps.map((step, i) => {
             const isLast = i === howItWorks.steps.length - 1;
             /* Alternate accent colours: navy, light blue, orange */
-            const accent = ["#002098", "#96C0D8", "#F88000", "#002098", "#96C0D8"][i];
+            const accent = ["#002098", "#60D030", "#F88000", "#002098", "#60D030"][i];
             return (
               <div
                 key={step.number}

@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Hero"
-      style={{ backgroundColor: "#002098", paddingTop: "56px", minHeight: "100svh", display: "flex", flexDirection: "column" }}
+      style={{ backgroundColor: "#002098", paddingTop: "64px", minHeight: "100svh", display: "flex", flexDirection: "column" }}
     >
       {/* ── DESKTOP: side-by-side, copy bottom-left, photo right ── */}
       <div className="hidden md:flex hero-grid" style={{ flex: 1 }}>
@@ -49,7 +49,7 @@ export default function Hero() {
               fontSize: "11px",
               fontWeight: 700,
               letterSpacing: "0.05em",
-              backgroundColor: "#96C0D8",
+              backgroundColor: "#60D030",
               color: "#FFFFFF",
               borderRadius: "4px",
               padding: "3px 10px",
@@ -93,7 +93,7 @@ export default function Hero() {
             style={{ position: "absolute", bottom: "20px", left: "24px", display: "flex", gap: "4px" }}
             aria-hidden="true"
           >
-            <div style={{ width: "24px", height: "3px", backgroundColor: "#96C0D8", borderRadius: "2px" }} />
+            <div style={{ width: "24px", height: "3px", backgroundColor: "#60D030", borderRadius: "2px" }} />
             <div style={{ width: "24px", height: "3px", backgroundColor: "#F88000", borderRadius: "2px" }} />
             <div style={{ width: "12px", height: "3px", backgroundColor: "rgba(255,255,255,0.4)", borderRadius: "2px" }} />
           </div>
@@ -112,7 +112,7 @@ export default function Hero() {
           <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: "1.6" }}>
             {hero.subheadline}
           </p>
-          <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "11px", fontWeight: 700, backgroundColor: "#96C0D8", color: "#002098", borderRadius: "4px", padding: "3px 10px", fontFamily: "var(--font-body)" }}>
+          <span style={{ alignSelf: "flex-start", display: "inline-flex", fontSize: "11px", fontWeight: 700, backgroundColor: "#60D030", color: "#002098", borderRadius: "4px", padding: "3px 10px", fontFamily: "var(--font-body)" }}>
             {hero.badge}
           </span>
           <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ alignSelf: "flex-start" }}>

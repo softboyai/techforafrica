@@ -4,6 +4,7 @@ import WhoItsFor from "@/app/components/WhoItsFor";
 import Courses from "@/app/components/Courses";
 import About from "@/app/components/About";
 import Partners from "@/app/components/Partners";
+import Posts from "@/app/components/Posts";
 import AdvertStrip from "@/app/components/AdvertStrip";
 import HowItWorks from "@/app/components/HowItWorks";
 import FAQ from "@/app/components/FAQ";
@@ -20,6 +21,7 @@ export default function Home() {
         <Courses />
         <About />
         <Partners />
+        <Posts />
         <AdvertStrip />
         <HowItWorks />
         <FAQ />

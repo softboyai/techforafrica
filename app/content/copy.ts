@@ -136,31 +136,23 @@ export const about = {
   operatorName: "Pathway to Salesforce",
   operatorLocation: "London, United Kingdom",
   partnerLabel: "Delivery Partners",
-  partnerNames: ["One Africa Digital", "Afrinnovators", "NovaCore Hub"],
+  partnerNames: ["NovaCore Hub"],
 } as const;
 
 // ─── Partners ─────────────────────────────────────────────────────────────
 export const partners = {
-  eyebrow: "Collaboration partners",
-  headline: "Delivered with trusted Rwandan tech companies.",
+  eyebrow: "Collaboration partner",
+  headline: "Delivered with a trusted Rwandan tech company.",
   intro:
-    "TechBridge for Africa works with three Rwandan partners who provide local coordination and participant support. The curriculum and programme standards are set by Pathway to Salesforce.",
+    "TechBridge for Africa works with NovaCore Hub, our Rwandan delivery partner providing local coordination and participant support. The curriculum and programme standards are set by Pathway to Salesforce.",
   items: [
-    {
-      name: "One Africa Digital",
-      region: "Rwanda",
-    },
-    {
-      name: "Afrinnovators",
-      region: "Rwanda",
-    },
     {
       name: "NovaCore Hub",
       region: "Rwanda",
     },
   ],
   disclaimer:
-    "One Africa Digital, Afrinnovators, and NovaCore Hub are delivery partners of TechBridge for Africa. Pathway to Salesforce (London) operates the programme.",
+    "NovaCore Hub is the delivery partner of TechBridge for Africa in Rwanda. Pathway to Salesforce (London) operates the programme.",
 } as const;
 
 // ─── Advert / Spotlight Strip ─────────────────────────────────────────────
@@ -225,7 +217,7 @@ export const faq = {
     {
       question: "Who runs this programme?",
       answer:
-        "TechBridge for Africa is operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK. The programme is delivered in collaboration with three Rwandan tech companies: One Africa Digital, Afrinnovators, and NovaCore Hub, who provide local support. Pathway to Salesforce sets the curriculum and is responsible for the programme's quality and outcomes.",
+        "TechBridge for Africa is operated by Pathway to Salesforce, a corporate technology training organisation based in London, UK. The programme is delivered in collaboration with NovaCore Hub in Rwanda, who provide local support. Pathway to Salesforce sets the curriculum and is responsible for the programme's quality and outcomes.",
     },
     {
       question: "What does the Salesforce CRM track prepare me for?",
@@ -298,5 +290,5 @@ export const footer = {
     address: "Kigali, Rwanda",
   },
   copyright: `© ${new Date().getFullYear()} TechBridge for Africa. All rights reserved.`,
-  deliveryPartners: "Delivered in collaboration with One Africa Digital, Afrinnovators, and NovaCore Hub.",
+  deliveryPartners: "Delivered in collaboration with NovaCore Hub, Kigali, Rwanda.",
 } as const;
